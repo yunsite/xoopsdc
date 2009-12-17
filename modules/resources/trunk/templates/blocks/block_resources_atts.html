@@ -1,0 +1,7 @@
+<div>
+	<ul>
+		<{foreachq item=res key=key from=$block}>
+			<li><a href="<{$xoops_url}>/modules/resources/detail.php?resources_id=<{$key}>" ><{$res.resources_subject}></a>&nbsp;&nbsp;[<{$res.resources_dateline}>]</li>
+		<{/foreach}>
+	</ul>
+</div>

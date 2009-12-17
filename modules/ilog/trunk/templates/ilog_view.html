@@ -1,0 +1,16 @@
+<div class="messages">
+
+<div class="title"><{$message.title}></div>
+<div id="articleMeta"><{$message.counter}> 次阅读</div>
+<{include file="db:tag_bar.html"}>
+<div class="message"><{$message.text_body}></div>
+<div class="time"><{$message.msg_time}></div>
+<div class="action">
+<{if $xoops_isadmin}>
+<span class="reply"><a href="action.php?op=edit&amp;id=<{$message.id}>" title=""><{$smarty.const._MD_ILOG_EDIT}></a></span> &nbsp;
+<a href="action.php?op=delete&amp;id=<{$message.id}>" title="<{$smarty.const._DELETE}>"><{$smarty.const._DELETE}></a>           
+<{/if}>
+</div>
+<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/counter.php?id=<{$message.id}>" width="1px" height="1px" />
+
+

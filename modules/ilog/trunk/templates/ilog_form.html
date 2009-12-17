@@ -1,0 +1,17 @@
+<form name="<{$form.name}>" id="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$pmform.extra}> >
+ <div id="messageForm">
+      <table>  
+      <{foreach item=element from=$form.elements}>
+      <{if $element.hidden != true}>
+      <tr>
+       <td class="caption"><{$element.caption}></td>
+        <td><{$element.body}></td>
+       </tr> 
+      <{else}>
+      <{$element.body}>
+      <{/if}>
+    <{/foreach}>
+    
+      </table>
+</div>
+</form>

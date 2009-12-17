@@ -1,0 +1,21 @@
+div#resources {
+
+}
+
+div#resources .confirmMsg {
+    padding: 10px;
+    background-color:#FEFFCF;
+    border:1px solid #F3BD3B;
+    line-height: 22px;
+}
+
+div#resources table.tbox {
+    width: 100%;
+}
+div#resources table.tbox th {
+    background-color: #f7f7f7;
+    padding: 3px;
+}
+div#resources table.tbox td {
+    padding: 3px;
+}

@@ -1,0 +1,17 @@
+<{foreach item=message from=$messages}>
+<div class="messages">
+    <{if $xoops_isadmin}>
+    <div class="action" style="float:right;">
+        <span class="reply"><a href="action.php?op=edit&amp;id=<{$message.id}>" title=""><{$smarty.const._MD_ILOG_EDIT}></a></span> &nbsp;
+        <a href="action.php?op=delete&amp;id=<{$message.id}>" title="<{$smarty.const._DELETE}>"><{$smarty.const._DELETE}></a>           
+    </div>
+    <{/if}>
+    <div class="title"><a href="view.php?id=<{$message.id}>" ><{$message.title}></a></div>
+    <div class="message"><a href="my.php?uid=<{$message.uid}>"><{$message.uname}></a> <span class="time">发布于：<{$message.time_publish}></span></div>
+    <div class="message"><{if $message.summary}><{$message.summary}><{else}><{$message.text_body}><{/if}></div>
+    <div style="text-align:right;">回复 (<{$message.comments}>) | <{$message.counter}> 次阅读</div>
+</div>
+<{/foreach}>
+<div class="pageNav"><{$page}></div>
+
+

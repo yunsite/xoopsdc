@@ -1,0 +1,32 @@
+<table class="userbox" width="100%">
+    <tr>
+        <td valign="top">
+            <div id="resources" style="padding: 10px;">
+                <{includeq file="db:resources_header.html"}>
+                <{foreachq item=item from=$resources_list}>
+                <h4 style="height: 22px; line-height: 22px;padding: 0 3px; background-color:#EEEEEE;"><a href="detail.php?resources_id=<{$item.resources_id}>"><{$item.resources_subject}></a></h4>
+                
+                <div style="padding: 3px; line-height: 20px;">
+                <{$item.resources_content}>
+                <div>(<{if $item.resources_state}><span style="color: #0000ff;">通过审核</span><{else}><span style="color: #ff0000;">等待审核</span><{/if}>)</div>
+                </div>
+                <div style="padding: 3px 5px; background-color: #eee; margin-bottom: 10px;">
+                    <{if !$item.resources_state}>
+                    <a href="post.php?resources_id=<{$item.resources_id}>">Edit</a> | 
+                    <{/if}>
+                    <a href="action.php?op=delete&amp;resources_id=<{$item.resources_id}>">Delete</a> 
+                    Category:<a href="index.php?cat_id=<{$item.cat_id}>"><{$item.cat_name}></a>  
+                    Time: <{$item.resources_dateline}> Attachments: <{$item.resources_attachment}> 
+                 </div>
+                <{/foreach}>
+                
+                <div class="pagenav"><{$pagenav}></div>
+            </div>
+            
+          </td>
+        
+        <td valign="top" class="userboxright">
+            <{includeq file="xotpl:theme-usernav.xotpl"}>
+        </td>
+    </tr>
+</table>

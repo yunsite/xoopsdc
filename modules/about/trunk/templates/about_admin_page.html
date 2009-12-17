@@ -1,0 +1,51 @@
+
+<a href="admin.page.php?op=new&amp;type=1"><{$smarty.const._AM_ABOUT_PAGE_INSERT}></a>
+<a href="admin.page.php?op=new&amp;type=2"><{$smarty.const._AM_ABOUT_INSERT_LINK}></a>
+
+<br />
+
+<form id="form" name="form" method="post" action="admin.page.php">
+    <table class="outer"> 
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_MENU_ORDER}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_CUS_INDEX_}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_TITLE}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_TEMPLATE}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_TYPE}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_STATUS_LIST}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_MENU_LIST}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_TIME}></th>
+        <th align="center"><{$smarty.const._AM_ABOUT_PAGE_AUTHOR}></th>
+
+        <th align="center"><{$smarty.const._AM_ABOUT_ACTION}></th>
+        <{foreach item=page from=$pages}>
+        <tr class="<{cycle values='odd, even'}>" align="center">
+            <td><input name="page_order[<{$page.page_id}>]" type="text" id="<{$page.page_id}>" value="<{$page.page_order}>" size="1" maxlength="4" /></td>
+            <td><input name="page_index" type="radio" value="<{$page.page_id}>" id="<{$page.page_id}>" <{if $page.page_index}>checked="checked"<{/if}> /></td>
+            <td width="30%"><a href="<{$xoops_url}>/modules/about/index.php?page_id=<{$page.page_id}>"><{$page.page_menu_title}></a></td>
+            <td><{$page.page_tpl}></td>
+            <td align="center">
+                <{if $page.page_type eq 1}><img src="../images/page.png" /><{else}><img src="../images/page_link.png" /><{/if}>
+            </td>
+            <td align="center">
+                <{if $page.page_status eq 1}><img src="../images/accept.png" /><{else}><img src="../images/delete.png" /><{/if}>
+            </td>
+            <td align="center">
+                <{if $page.page_menu_status}><img src="../images/tick.png" /><{else}><img src="../images/disabled.png" /><{/if}>
+            </td>
+            <td align="center"><{$page.page_pushtime}></td>
+            <td><{$page.page_author}></td>
+            <td align="center">
+            	<a href="admin.page.php?id=<{$page.page_id}>"><{$smarty.const._EDIT}></a>
+            	<a href="admin.page.php?op=delete&amp;id=<{$page.page_id}>"><{$smarty.const._DELETE}></a>
+        	</td>
+        </tr>
+    <{/foreach}>
+        <tr>
+            <td colspan="11">
+            <input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>">
+            </td>
+        </tr>
+    </table>
+</form>
+
+

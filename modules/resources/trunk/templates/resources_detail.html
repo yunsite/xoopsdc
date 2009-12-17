@@ -1,0 +1,21 @@
+<div class="mnavbox">
+    <div class="mnav"><a href="<{$xoops_url}>">首页</a> &gt;&gt; <a href="<{$xoops_url}>/modules/<{$xoops_dirname}>/">下载</a></div>
+    <{if $xoops_userid AND $useruploads}>
+    <div style="height: 40px;"><span class="button"><a href="post.php">Post</a></span></div>
+    <{/if}>
+</div>
+
+<div id="resources" style="padding: 10px;">
+    <h2><{$resources.resources_subject}></h2>
+    <div style="padding: 3px 5px; background-color: #f4f4f4; margin-bottom: 10px;">分类: <a href="index.php?cat_id=<{$resources.cat_id}>"><{$resources.cat_name}></a> 日期: <{$resources.resources_dateline}> 附件: <{$resources.resources_attachment}></div>
+    <div style="padding: 3px; line-height: 20px;"><{$resources.resources_content}></div>
+    <br />
+
+    
+    <{foreachq item=item from=$resources.attachments}>
+        <ul>
+            <li  style="padding: 3px; line-height: 20px;"><a href="downloads.php?id=<{$item.att_id}>">下载 (<{$item.att_downloads}>)</a> <{$item.att_filename}> (<{$item.att_size}>) (<{$item.att_dateline}>)</li>
+        </ul>
+    <{/foreach}>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<form name="form" id="form" action="action.submit.php" method="post" >
+<table class="outer" width="100%">
+    <tr>
+        <th width="3%">&nbsp;</th>
+        <th width="7%">分类</th>
+        <th width="31%">标题</th>
+        <!--<th width="10%">作者</th>-->
+        <th width="15%">时间</th>
+        <th width="8%">状态</th>
+        <th width="8%">附件</th>
+        <!--<th width="8%">评论</th>-->
+        <th>操作</th>
+    </tr>
+	<{foreachq item=item from=$repositories}>
+	<tr class="<{cycle values='odd, even'}>">
+		<td align="center"><input type="checkbox" name="resources_ids[]" value="<{$item.resources_id}>" /></td>
+		<td><{$item.cat_name}></td>
+		<td><{$item.resources_subject}></td>
+		<!--<td align="center"><{$item.name}></td>-->
+		<td align="center"><{$item.resources_dateline}></td>
+		<td align="center"><{if $item.resources_state eq 1 }>通过<{else}>待审核<{/if}></td>
+		<td align="center"><{$item.resources_attachment}></td>
+		<!--<td align="center"><{$item.resources_post}></td>-->
+		<td align="center"><a href="edit.php?resources_id=<{$item.resources_id}>">编辑</a> | <a href="action.del.php?op=resources&amp;id=<{$item.resources_id}>">删除</a></td>
+	</tr>
+	<{/foreach}>
+	<tr>
+	   <td align="center"><input name='allbox' id='allbox' onclick='xoopsCheckAll("form", "allbox");' type='checkbox' value='Check All' /></td>
+	   <td colspan="7">全选 <input type="radio" name="pass" value="1" checked />通过审核 <input type="radio" name="pass" value="0" />取消审核 <input type="hidden" name="op" value="verify" /><input type="submit" name="submit" value="<{$smarty.const._SUBMIT}>" /></td>
+	</tr>
+</table>
+</form>

@@ -1,0 +1,44 @@
+<{if $op eq 'display'}>
+    <div style="text-align:right; margin:0 0 10px 0;">
+        <select name="sort" id="sort" onchange="location='<{$xoops_url}>/modules/links/admin/admin.links.php?sort='+this.options[this.selectedIndex].value">
+            <{foreach item=sort_list key=key from=$sorts_list}>
+                <option value="<{$key}>" <{if $key eq $sort}>selected="selected"<{/if}>><{$sort_list}></option>
+            <{/foreach}>
+        </select> 
+    </div>
+<{else}>
+<h1><{$smarty.const._AM_LINKS_CATNAMETITLE}><{$cat_name}></h1>
+<{/if}>
+<div><a href="admin.links.php?op=new&amp;<{if $op eq 'display'}>sort=<{$sort}><{else}>cid=<{$cat_id}><{/if}>"><{$smarty.const._AM_LINKS_ADDLIK}></a></div>
+<form id="form" name="form" method="post" action="admin.links.php?cat_id=<{$cat_id}>">
+    <table class="outer"> 
+        <{if $op neq 'display'}><th align="center"><{$smarty.const._AM_LINKS_SORT}></th><{/if}>
+        <th align="center"><{$smarty.const._AM_LINKS_LIKNAME}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_CATEGORY}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_LOGO}><{if !$logo}><{$smarty.const._AM_LINKS_PATH}><{/if}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_STATUS}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_PUBLISHDATE}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_UPDATED}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_ACTIVE}></th>
+        <{foreach item=link from=$links}>
+        <tr class="<{cycle values='odd, even'}>" align="center">
+            <{if $op neq 'display'}><td width="5%"><input name="link_order[<{$link.link_id}>]" type="text" id="<{$link.link_id}>" value="<{$link.link_order}>" size="1" maxlength="4" /></td><{/if}>
+            <td width="15%"><a href="<{$link.link_url}>"><{$link.link_title}></a></td>
+            <td width="15%"><a href="admin.links.php?cat_id=<{$link.cat_id}>&amp;sort=<{$sort}>"><{$link.cat_name}></a></td>
+            <td width="10%"><{if $logo}><{if $link.link_image}><img src="<{$link.link_image}>" width="80" height="20"><{else}><{$smarty.const._AM_LINKS_NOTLOGO}><{/if}><{else}><{$link.link_dir}><{/if}></td>
+            <td width="5%"><img src="<{$link.link_status}>"></td>
+            <td width="15%"><{$link.published}></td>
+            <td width="15%"><{$link.datetime}></td>
+            <td align="center" width="10%">
+                <a href="admin.links.php?link_id=<{$link.link_id}>&amp;sort=<{$sort}>"><{$smarty.const._AM_LINKS_EDIT}></a>&nbsp;&nbsp;
+              	<a href="action.links.php?ac=delete&amp;link_id=<{$link.link_id}>&amp;sort=<{$sort}>"><{$smarty.const._AM_LINKS_DELETE}></a>
+            </td>
+        </tr>
+        <{/foreach}>
+         <{if $op neq 'display'}>
+            <tr>
+                <td colspan="8"><div align="right"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>">&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+            </tr>
+        <{/if}>
+    </table>
+</form>
