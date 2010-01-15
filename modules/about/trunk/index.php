@@ -35,16 +35,17 @@ $xoopsOption['xoops_pagetitle'] = $page['page_title'];
 $xoopsOption['template_main'] = about_getTemplate("page",  $page['page_tpl']);
 include XOOPS_ROOT_PATH.'/header.php';
 if(!empty($page)){
-$myts = MyTextSanitizer::getInstance();
-$page['page_text'] = $myts->undoHtmlSpecialChars($page['page_text']);
-if (($page['page_type'] == 2)) {
-    header("location: ".$page['page_text']);    
-}
-$xoopsTpl->assign('pagemenu',  $page_menu);
-$xoopsTpl->assign('page',  $page);
-if ($page_id) {
-$xoBreadcrumbs[] = array('title' => $page['page_menu_title']);
-}
+    $myts = MyTextSanitizer::getInstance();
+    $page['page_text'] = $myts->undoHtmlSpecialChars($page['page_text']);
+    if (($page['page_type'] == 2)) {
+        header("location: ".$page['page_text']);    
+    }
+    $xoTheme->addMeta('meta','description',$page['page_menu_title']);
+    $xoopsTpl->assign('pagemenu',  $page_menu);
+    $xoopsTpl->assign('page',  $page);
+    if ($page_id) {
+        $xoBreadcrumbs[] = array('title' => $page['page_menu_title']);
+    }
 
 }
 
