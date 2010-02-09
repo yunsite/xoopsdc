@@ -1,8 +1,8 @@
 CREATE TABLE `about_page` (
 `page_id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
-`cat_url` VARCHAR( 255 ) NOT NULL ,
 `page_title` VARCHAR( 255 ) NOT NULL ,
 `page_menu_title` VARCHAR( 255 ) NOT NULL ,
+`page_image` VARCHAR( 255 ) NOT NULL ,
 `page_text` text NOT NULL ,
 `page_author` VARCHAR( 255 ) NOT NULL ,
 `page_pushtime` INT( 10 ) NOT NULL ,
@@ -13,6 +13,11 @@ CREATE TABLE `about_page` (
 `page_order` INT( 2 ) NOT NULL DEFAULT '0',
 `page_index`INT( 1 ) NOT NULL DEFAULT '0',
 `page_tpl` VARCHAR( 255 ) NOT NULL ,
+`dohtml` 		tinyint(1) 		NOT NULL default '1',
+`dosmiley` 		tinyint(1) 		NOT NULL default '0',
+`doxcode` 		tinyint(1) 		NOT NULL default '0',
+`doimage` 		tinyint(1) 		NOT NULL default '0',
+`dobr` 			tinyint(1) 		NOT NULL default '0',
 PRIMARY KEY ( `page_id` )
 );
 

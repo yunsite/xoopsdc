@@ -1,4 +1,23 @@
 <?php
+ /**
+ * About
+ *
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code 
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * @copyright      The XOOPS Co.Ltd. http://www.xoops.com.cn
+ * @license        http://www.fsf.org/copyleft/gpl.html GNU public license
+ * @package        about
+ * @since          1.0.0
+ * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
+ * @version        $Id: admin.page.php 1 2010-2-9 ezsky$
+ */
+
 include 'header.php';
 
 xoops_cp_header();
@@ -59,12 +78,12 @@ case "list":
 	$pages = $page_handler->getAll($criteria, $fields, false, true);
 	$member_handler =& xoops_gethandler('member');
 	foreach ($pages as $k=>$v){
-		$pages[$k]['page_pushtime'] = formatTimestamp($v['page_pushtime']);
+		$pages[$k]['page_pushtime'] = formatTimestamp($v['page_pushtime'],"Y-m-d h:i:s");
 		$thisuser =& $member_handler->getUser($v['page_author']);
-    $pages[$k]['page_author'] = $thisuser->getVar('uname');
-    unset($thisuser);
-		
+        $pages[$k]['page_author'] = $thisuser->getVar('uname');
+        unset($thisuser);
 	}
+
     $xoopsTpl->assign("pages",$pages);
     $xoopsTpl->display("db:about_admin_page.html");
     break;
@@ -100,18 +119,44 @@ case "save":
     //set index     
      if(!$page_handler->getCount()) $page_obj->setVar('page_index', 1);
     
-    //
     //set submiter
+    global $xoopsUser, $xoopsModule;
     $page_obj->setVar('page_author',$xoopsUser->getVar('uid'));
     $page_obj->setVar('page_pushtime',time());
     
-    if ($page_handler->insert($page_obj)) {
-        redirect_header('admin.page.php?', 3, sprintf(_AM_ABOUT_SAVEDSUCCESS, _AM_ABOUT_PAGE_INSERT));
+    // upload image
+    if (!empty($_FILES['userfile']['name'])) {
+		include_once XOOPS_ROOT_PATH.'/class/uploader.php';
+		include_once dirname(dirname(__FILE__)) . '/include/functions.php';
+		$upload_path = mkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname());
+		$allowed_mimetypes = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png', 'image/x-png');
+	    $maxfilesize = 500000;
+	    $maxfilewidth = 1200;
+	    $maxfileheight = 1200;
+	    $uploader = new XoopsMediaUploader($upload_path, $allowed_mimetypes, $maxfilesize, $maxfilewidth, $maxfileheight);
+	    if ($uploader->fetchMedia($_POST['xoops_upload_file'][0])) {
+	        $uploader->setPrefix('attch_');
+	        if (!$uploader->upload()) {
+	        	$error_upload = $uploader->getErrors();
+	        }elseif ( file_exists( $uploader->getSavedDestination() )) {
+		        if ($page_obj->getVar("page_image")){
+		            @unlink($upload_path . '/' . $page_obj->getVar("page_image"));
+	            }
+	            $page_obj->setVar('page_image', $uploader->getSavedFileName());
+	        }     
+	    }
     }
+  
+	// insert object  
+    if ($page_handler->insert($page_obj)) {
+        redirect_header('admin.page.php', 3, sprintf(_AM_ABOUT_SAVEDSUCCESS, _AM_ABOUT_PAGE_INSERT)); 
+    }
+    
     echo $page_obj->getHtmlErrors();
     $format = "p";
     $form = include "../include/form.page.php";
     $form->display();
+    
     break;
 
 case "delete":
@@ -120,7 +165,7 @@ case "delete":
         if($page_handler->delete($page_obj)) {
             redirect_header('admin.page.php', 3, sprintf(_AM_ABOUT_DELETESUCCESS, _AM_ABOUT_PAGE_INSERT));
         }else{
-            echo $obj->getHtmlErrors();
+            echo $page_obj->getHtmlErrors();
         }
     }else{
         xoops_confirm(array('ok' => 1, 'id' => $page_obj->getVar('page_id'), 'op' => 'delete'), $_SERVER['REQUEST_URI'], sprintf(_AM_ABOUT_RUSUREDEL, $page_obj->getVar('page_menu_title')));

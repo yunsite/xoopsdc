@@ -1,25 +1,23 @@
 <?php
-/*
- You may not change or alter any portion of this comment or credits
- of supporting developers from this source code or any supporting source code 
- which is considered copyrighted (c) material of the original comment or credit authors.
- 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-*/
-
-/**
- * XOOPS about page module
+ /**
+ * About
  *
- * @copyright       The XOOPS project http://sourceforge.net/projects/xoops/
- * @license         http://www.fsf.org/copyleft/gpl.html GNU public license
- * @since           1.0.0
- * @author          susheng yang <ezskyyoung@gmail.com> 
- * @version         $Id: block.php 
- * @package         about
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code 
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * @copyright      The XOOPS Co.Ltd. http://www.xoops.com.cn
+ * @license        http://www.fsf.org/copyleft/gpl.html GNU public license
+ * @package        about
+ * @since          1.0.0
+ * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
+ * @version        $Id: blocks.php 1 2010-2-9 ezsky$
  */
- 
+
 if (!defined('XOOPS_ROOT_PATH')) { exit(); }
 function about_block_menu_show(){
     $page_handler =& xoops_getmodulehandler('page', 'about');
@@ -39,9 +37,57 @@ function about_block_menu_show(){
     
     include dirname(dirname(__FILE__)) . "/xoops_version.php";
     foreach ($page_menu as $k=>$v) {
-        $page_menu[$k]['links'] = XOOPS_URL.'/modules/'.$modversion['dirname'].'/index.php?page_id='.$v['page_id'];
+        $page_menu[$k]['links'] = XOOPS_URL.'/modules/'.$modversion['dirname'] . '/index.php?page_id='.$v['page_id'];
     }
     $block = $page_menu;
     return  $block;
+}
+function about_block_page_show($options){
+	$block = array();
+	$page_handler =& xoops_getmodulehandler('page', 'about');
+	$page = $page_handler->get($options[0]);
+	$page_text = strip_tags($page->getVar('page_text','n'));
+
+	if ( $options[1] > 0 ) {
+		include dirname(dirname(__FILE__)) . "/xoops_version.php";
+		$url = XOOPS_URL . '/modules/' . $modversion['dirname'] . '/index.php?page_id=' . $options[0];
+		$trimmarker =<<<EOF
+		<a href="{$url}" class="more">{$options[2]}</a>
+EOF;
+		$page_text = xoops_substr($page_text ,0 , $options[1], $trimmarker);	
+	}
+	$block['page_text'] = $page_text;
+	$block['page_image'] = $options[3] == 1 ? XOOPS_UPLOAD_URL .'/'. $modversion['dirname'] .'/'. $page->getVar('page_image','s') : '';	
+	
+	return $block;
+}
+
+function about_block_page_edit($options){
+	include dirname(dirname(__FILE__)) . "/xoops_version.php";
+	$page_handler =& xoops_getmodulehandler('page', 'about');
+	$criteria = new CriteriaCompo();
+	$criteria->add(new Criteria('page_status', 1), 'AND');
+	$criteria->add(new Criteria('page_type', 1));
+	$criteria->setSort('page_order');
+	$criteria->setOrder('ASC');
+	$fields = array("page_id", "page_title", "page_image");
+	$pages = $page_handler->getAll($criteria, $fields, false);
+	$page_title = '';
+	foreach ($pages as $k=>$v){
+		$page_title = '<a href="'. XOOPS_URL . '/modules/' . $modversion['dirname'] . '/index.php?page_id=' . $k . '" target="_blank">' . $v['page_title'] . '</a>';
+		$options_page[$k] = empty($v['page_image']) ? $page_title : $page_title . '<img src="'.XOOPS_URL . '/modules/' . $modversion['dirname'] . '/images/picture.png'. '" />'; 
+	}
+	include_once dirname(dirname(__FILE__)) . '/include/xoopsformloader.php';	
+	$form = new XoopsBlockForm();
+	$page_select = new XoopsFormRadio('页面', 'options[0]', $options[0], '<br />');
+	$page_select->addOptionArray($options_page);
+	$form->addElement($page_select);
+	$form->addElement(new XoopsFormText('文字长度', 'options[1]',5 , 5 ,$options[1]));
+	$form->addElement(new XoopsFormText('阅读更多链接文字', 'options[2]', 30, 50 , $options[2]));
+	$form->addElement(new XoopsFormRadioYN('是否显示题头图片', 'options[3]', $options[3]));
+	
+	
+	return $form->render();
+	
 }
 ?>
