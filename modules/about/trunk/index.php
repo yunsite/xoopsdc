@@ -50,7 +50,7 @@ $criteria->setSort('page_order');
 $criteria->setOrder('ASC');
 $page = current($page_handler->getObjects($criteria, null, false, false));	
 
-$xoopsOption['xoops_pagetitle'] = $page['page_title'];
+$xoopsOption['xoops_pagetitle'] = $page['page_title']. ' - ' . $xoopsModule->getVar('name');
 $xoopsOption['template_main'] = about_getTemplate("page",  $page['page_tpl']);
 include XOOPS_ROOT_PATH.'/header.php';
 if(!empty($page)){

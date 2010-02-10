@@ -64,10 +64,10 @@ $modversion["blocks"][1] = array(
 );
 
 /*
- * @param int $options[0] page id
- * @param int $options[1] text subStr number
- * @param int $options[2] if show page image
- * @param int $options[3] more link text 
+ * @param int  $options[0] page id
+ * @param int  $options[1] text subStr number
+ * @param text $options[2] more link text 
+ * @param int  $options[3]  if show page image
  */
 
 $modversion["blocks"][2] = array(
@@ -75,7 +75,7 @@ $modversion["blocks"][2] = array(
     "name"          => _MI_ABOUT_PAGE,
     "description"   => "",
     "show_func"     => "about_block_page_show",
-    "options"       => "1|0|0|[more]",
+    "options"       => "1|0|[more]|0",
     "edit_func"     => "about_block_page_edit",
     "template"      => "about_block_page.html"
 );
