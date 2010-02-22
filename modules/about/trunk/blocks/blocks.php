@@ -42,12 +42,12 @@ function about_block_menu_show(){
     $block = $page_menu;
     return  $block;
 }
+
 function about_block_page_show($options){
 	$block = array();
 	$page_handler =& xoops_getmodulehandler('page', 'about');
 	$page = $page_handler->get($options[0]);
 	$page_text = strip_tags($page->getVar('page_text','n'));
-
 	if ( $options[1] > 0 ) {
 		include dirname(dirname(__FILE__)) . "/xoops_version.php";
 		$url = XOOPS_URL . '/modules/' . $modversion['dirname'] . '/index.php?page_id=' . $options[0];
@@ -57,8 +57,8 @@ EOF;
 		$page_text = xoops_substr($page_text ,0 , $options[1], $trimmarker);	
 	}
 	$block['page_text'] = $page_text;
-	$block['page_image'] = $options[3] == 1 ? XOOPS_UPLOAD_URL .'/'. $modversion['dirname'] .'/'. $page->getVar('page_image','s') : '';	
-	
+	$block['page_image'] = $options[3] == 1 ? XOOPS_UPLOAD_URL . '/' . $modversion['dirname'] .'/'. $page->getVar('page_image','s') : '';	
+
 	return $block;
 }
 
@@ -85,9 +85,8 @@ function about_block_page_edit($options){
 	$form->addElement(new XoopsFormText('文字长度', 'options[1]',5 , 5 ,$options[1]));
 	$form->addElement(new XoopsFormText('阅读更多链接文字', 'options[2]', 30, 50 , $options[2]));
 	$form->addElement(new XoopsFormRadioYN('是否显示题头图片', 'options[3]', $options[3]));
-	
-	
+
 	return $form->render();
-	
+
 }
 ?>
