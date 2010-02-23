@@ -1,0 +1,55 @@
+<h4 id="modTitle"><{$smarty.const._MD_GUESTBOOK}></h4>
+<{foreach item=message from=$messages}>
+<div class="messages">
+
+<div class="poster"><{$message.floor}>楼&nbsp;&nbsp;<{$message.name}>&nbsp;&nbsp;<{$smarty.const._MD_GUESTBOOK_MESSAGEOF}></div>
+
+<div class="title"><b><{$smarty.const._MD_GUESTBOOK_TITLE}></b>:<{$message.title}></div>
+<div class="message"><b><{$smarty.const._MD_GUESTBOOK_TEXT}></b>:<{$message.message}></div>
+<div class="time"><{$message.msg_time}></div>
+<div class="action">
+
+<span class="reply"><a href="index.php?op=reply&amp;id=<{$message.id}>" title="<{$smarty.const._REPLY}>"><{$smarty.const._REPLY}></a></span> &nbsp;
+<{if $xoops_isadmin}>
+<a href="index.php?op=delete&amp;id=<{$message.id}>" title="<{$smarty.const._DELETE}>"><{$smarty.const._DELETE}></a>           
+<{/if}>
+</div>
+
+
+    <{foreach item=items from=$message.child}>
+        <div class="reMessage">
+        <div class="poster"><{$items.name}>&nbsp;&nbsp;<{$smarty.const._MD_GUESTBOOK_MESSAGEREPLY}></div>
+        
+        <div class="title"><b><{$smarty.const._MD_GUESTBOOK_TITLE}></b>:<{$items.title}></div>
+        <div class="message"><b><{$smarty.const._MD_GUESTBOOK_TEXT}></b>:<{$items.message}></div>
+        <div class="time"><{$items.msg_time}></div>
+        <div class="action">
+        <a href="index.php?op=reply&amp;id=<{$items.id}>" title="<{$smarty.const._REPLY}>"><{$smarty.const._REPLY}></a> &nbsp;
+        <{if $xoops_isadmin}>
+        <a href="index.php?op=delete&amp;id=<{$items.id}>" title="<{$smarty.const._DELETE}>"><{$smarty.const._DELETE}></a>           
+        <{/if}>
+        </div>
+        </div>
+    <{/foreach}>
+</div>
+<{/foreach}>
+<div class="pageNav"><{$page}></div>
+
+<form name="<{$form.name}>" id="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$pmform.extra}> >
+ <div id="messageForm"><b><{$smarty.const._MD_GUESTBOOK_ADDMESSAGE}></b>
+      <table>
+            
+      <{foreach item=element from=$form.elements}>
+      <{if $element.hidden != true}>
+      <tr>
+       <td class="caption"><{$element.caption}></td>
+        <td><{$element.body}></td>
+       </tr> 
+      <{else}>
+      <{$element.body}>
+      <{/if}>
+    <{/foreach}>
+    
+      </table>
+</div>
+</form>

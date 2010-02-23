@@ -1,0 +1,42 @@
+.messages{
+line-height:20px;
+border-bottom: 1px dotted #ccc; 
+padding:5px;
+}
+.time{
+color:#666;
+}
+.reMessage{
+margin:0 0 1px 10px;
+padding:0 5px;
+border-left: 3px solid #ccc;
+}
+
+.overflow{
+overflow:auto;
+zoom:1;
+}
+.pageNav{
+padding:5px 0;
+}
+#messageForm{
+width:560px;
+
+}
+#messageForm b{
+display:block;
+border-top: 1px solid #666; 
+padding:5px 0;
+
+}
+#messageForm table{
+
+ border-collapse: collapse;
+}
+#messageForm .caption{
+width:80px;
+}
+#messageForm td{
+padding:5px;
+border-bottom: 1px solid #ccc; 
+}
