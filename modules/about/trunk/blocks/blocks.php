@@ -52,9 +52,10 @@ function about_block_page_show($options){
 	if ( $options[1] > 0 ) {
 		$url = XOOPS_URL . '/modules/' . $modversion['dirname'] . '/index.php?page_id=' . $options[0];
 		$trimmarker =<<<EOF
-		<a href="{$url}" class="more">{$options[2]}</a>
+<a href="{$url}" class="more">{$options[2]}</a>
 EOF;
-		$page_text = xoops_substr($page_text, 0, $options[1], $trimmarker);	
+		$page_text = xoops_substr($page_text, 0, $options[1]) . $trimmarker;
+		
 	}
 	$block['page_text'] = $page_text;
 	$block['page_image'] = $options[3] == 1 ? XOOPS_UPLOAD_URL . '/' . $modversion['dirname'] .'/'. $page->getVar('page_image','s') : '';	
