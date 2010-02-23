@@ -161,8 +161,10 @@ case "save":
 
 case "delete":
     $page_obj =& $page_handler->get($page_id);
+    $image = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname() . '/' . $page_obj->getVar("page_image");
     if (isset($_REQUEST['ok']) && $_REQUEST['ok'] == 1) {
         if($page_handler->delete($page_obj)) {
+            if file_exists($image) { @unlink($image)};        
             redirect_header('admin.page.php', 3, sprintf(_AM_ABOUT_DELETESUCCESS, _AM_ABOUT_PAGE_INSERT));
         }else{
             echo $page_obj->getHtmlErrors();
