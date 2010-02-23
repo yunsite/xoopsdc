@@ -32,6 +32,8 @@ $modversion['adminmenu'] = "admin/menu.php";
 
 // Is performing module install/update?
 $isModuleAction = ( !empty($_POST["fct"]) && "modulesadmin" == $_POST["fct"] ) ? true : false;
+$modversion["onInstall"] = "include/action.module.php";
+$modversion["onUpdate"] = "include/action.module.php";
 
 // Menu
 $modversion['hasMain'] = 1; 
@@ -55,7 +57,7 @@ $modversion["blocks"] = array();
 
 $modversion["blocks"][1] = array(
     "file"          => "blocks.php",
-    "name"          => _MI_ABOUT_NAME,
+    "name"          => _MI_ABOUT_ABOUTWE,
     "description"   => "",
     "show_func"     => "about_block_menu_show",
     "options"       => "",
@@ -75,7 +77,7 @@ $modversion["blocks"][2] = array(
     "name"          => _MI_ABOUT_PAGE,
     "description"   => "",
     "show_func"     => "about_block_page_show",
-    "options"       => "1|0|0|[more]",
+    "options"       => "1|0|[more]|0",
     "edit_func"     => "about_block_page_edit",
     "template"      => "about_block_page.html"
 );

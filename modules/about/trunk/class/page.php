@@ -37,7 +37,7 @@ class AboutPage extends XoopsObject
         $this->initVar('page_type', XOBJ_DTYPE_INT, 0, false);
         $this->initVar('page_status', XOBJ_DTYPE_INT, null, false);
         $this->initVar('page_order', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('page_url', XOBJ_DTYPE_TXTBOX,"");
+        //$this->initVar('page_url', XOBJ_DTYPE_TXTBOX,"");
         $this->initVar('page_index', XOBJ_DTYPE_INT, null, false);
         $this->initVar('page_tpl', XOBJ_DTYPE_TXTBOX,"");
         $this->initVar('dohtml', XOBJ_DTYPE_INT, 1, false);
