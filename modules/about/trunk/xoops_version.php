@@ -19,7 +19,7 @@
  */
 
 $modversion['name'] = _MI_ABOUT_NAME;
-$modversion['version'] = 1.02;
+$modversion['version'] = 1.00;
 $modversion['description'] = _MI_ABOUT_DESC;
 $modversion['author'] = "Magic.Shao<magic.shao@gmail.com>, ezsky <ezskyyoung@gmail.com>";
 $modversion['credits'] = "xoops.org.cn";
