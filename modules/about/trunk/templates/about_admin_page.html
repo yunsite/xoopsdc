@@ -1,11 +1,19 @@
-
+<style>
+<!--
+.options a {
+    font-weight:normal;
+} 
+-->
+</style>
+<img src="../images/page_add.png" />
 <a href="admin.page.php?op=new&amp;type=1"><{$smarty.const._AM_ABOUT_PAGE_INSERT}></a>
+<img src="../images/link_add.png" />
 <a href="admin.page.php?op=new&amp;type=2"><{$smarty.const._AM_ABOUT_INSERT_LINK}></a>
 
 <br /> <br />
 
 <form id="form" name="form" method="post" action="admin.page.php">
-    <table class="outer"> 
+    <table id="about-pageList" class="outer"> 
         <th width="5%" align="center"><{$smarty.const._AM_ABOUT_PAGE_MENU_ORDER}></th>
         <th width="4%" align="center"><{$smarty.const._INDEX}></th>
         <th align="center"><{$smarty.const._AM_ABOUT_PAGE_TITLE}></th>
@@ -56,7 +64,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $(".options").css("visibility","hidden");
-	$("tr").hover(function() {
+	$("#about-pageList tr").hover(function() {
 		$(this).find(".options").css("visibility","visible");
 	}, function() {
 		$(this).find(".options").css("visibility","hidden");
