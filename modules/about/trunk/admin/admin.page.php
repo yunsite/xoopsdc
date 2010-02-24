@@ -101,6 +101,9 @@ case "edit":
     break;
 
 case "save":
+    if (!$GLOBALS['xoopsSecurity']->check()) {
+        redirect_header('admin.page.php', 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
+    }
     if (isset($page_id)) {
         $page_obj =& $page_handler->get($page_id);
     }else {
@@ -128,7 +131,7 @@ case "save":
     if (!empty($_FILES['userfile']['name'])) {
 		include_once XOOPS_ROOT_PATH.'/class/uploader.php';
 		include_once dirname(dirname(__FILE__)) . '/include/functions.php';
-		$upload_path = mkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname());
+		if(mkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
 		$allowed_mimetypes = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png', 'image/x-png');
 	    $maxfilesize = 500000;
 	    $maxfilewidth = 1200;
