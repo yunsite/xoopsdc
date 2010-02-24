@@ -1,0 +1,41 @@
+#about_index_crumb{
+	padding:5px 0;
+}
+
+#about_index_menu{
+	height: 100%;
+	width: 180px;
+	float: left;
+	padding:0;
+	margin:40px 0 0 0;
+	list-style: none;
+}
+
+#about_index_menu li{
+	margin: 1px 0;
+}
+
+#about_index_menu li a{
+	background-color: #e6e6e6; 
+	font-weight : normal;
+	display: block; 
+	margin: 0; 
+	padding: 3px; 
+	border-top: 1px solid #c0c0c0;
+	border-right: 1px solid #666; 
+	border-bottom: 1px solid #666; 
+	border-left: 1px solid #c0c0c0; 
+}
+
+#about_index_wrap{
+	margin:0 0 0 190px;
+}
+
+#about_index_content_title{
+	padding:5px;
+	font-size: 22px;
+	margin: 0;
+}
+#about_index_content_text{
+	line-height: 22px;
+}
