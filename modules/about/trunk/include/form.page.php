@@ -31,7 +31,7 @@ $list_status = $page_obj->isNew() ? 1 : $page_obj->getVar('page_status');
 $page_blank = $page_obj->isNew() ? 0 : $page_obj->getVar('page_blank');
 $title = $page_obj->isNew() ? _AM_ABOUT_PAGE_INSERT : _AM_ABOUT_EDIT;
 
-$form = new XoopsThemeForm($title, 'form', "admin.page.php", 'post');
+$form = new XoopsThemeForm($title, 'form', "admin.page.php", 'post', true);
 $form->setExtra("enctype=\"multipart/form-data\"");
 if($pageType == 1){
 	$form->addElement(new XoopsFormText(_AM_ABOUT_PAGE_TITLE, 'page_title', 60, 255, $page_obj->getVar('page_title', $format)), true);
