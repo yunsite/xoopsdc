@@ -45,6 +45,7 @@ function about_block_menu_show(){
 
 function about_block_page_show($options){    
 	@include dirname(dirname(__FILE__)) . "/xoops_version.php";
+	$myts =& MyTextSanitizer::getInstance();
 	$block = array();
 	$page_handler =& xoops_getmodulehandler('page', 'about');
 	$page = $page_handler->get($options[0]);
@@ -57,7 +58,8 @@ EOF;
 		$page_text = xoops_substr($page_text, 0, $options[1]) . $trimmarker;
 		
 	}
-	$block['page_text'] = $page_text;
+	
+	$block['page_text'] = $myts->nl2br($page_text);
 	$block['page_image'] = $options[3] == 1 ? XOOPS_UPLOAD_URL . '/' . $modversion['dirname'] .'/'. $page->getVar('page_image','s') : '';	
 
 	return $block;
