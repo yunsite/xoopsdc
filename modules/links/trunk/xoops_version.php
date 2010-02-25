@@ -14,14 +14,15 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: xoops_version.php 1 2010-1-22 ezsky$
  */
 
 $modversion['name'] = _MI_LINKS_NAME;
 $modversion['version'] = 1.0;
 $modversion['description'] = _MI_LINKS_DESC;
+$modversion['author'] = "Magic.Shao<magic.shao@gmail.com>, ezsky <ezskyyoung@gmail.com>";
 $modversion['credits'] = "The XOOPS Project";
-$modversion['help'] = "links.html";
 $modversion['license'] = "GPL see LICENSE";
 $modversion['official'] = 1;
 $modversion['image'] = "images/logo.png";
@@ -71,16 +72,7 @@ $modversion["templates"][] = array(
 );
 //config
 $i = 0;
-/*
-$modversion['config'][$i]['name'] = 'category_dir';
-$modversion['config'][$i]['title'] = '_MI_LINKS_CON_CATEGORY_DIR';
-$modversion['config'][$i]['description'] = '';
-$modversion['config'][$i]['formtype'] = 'textbox';
-$modversion['config'][$i]['valuetype'] = 'text';
-$modversion['config'][$i]['default'] = '/uploads/links/';
-$modversion['config'][$i]['category'] = 'module';
-$i++;
-*/
+
 $modversion['config'][$i]['name'] = 'logo_dir';
 $modversion['config'][$i]['title'] = '_MI_LINKS_CON_LINK_DIR';
 $modversion['config'][$i]['description'] = '';

@@ -14,21 +14,22 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: main.php 1 2010-1-22 ezsky$
  */
 
-if (!defined("XOOPS_ROOT_PATH")) {
-	exit();
-}
-//admin
-define("_MD_LINK","友情链接");
-define("_MD_LINK_LIST","全部链接");
-define("_MD_LINK_INSERT","添加链接");
-define("_MD_LINK_INSERT_CAT","创建分类");
-define("_MD_LINK_TITLE","标题");
-define("_MD_LINK_CAT","分类");
-define("_MD_LINK_ADD","地址");
-define("_MD_LINK_ADD_MESSAGE","地址必须带有http://");
-define("_MD_LINK_INTRODUCTION","简介");
+//header.php
+define("_MD_LINKS_SITEINDEX","网站首页");
+
+//join.php
+define("_MD_LINKS_APPLYJOIN","申请加入");
+define("_MD_LINKS_SITETITLE","网站标题");
+define("_MD_LINKS_SITEURL","网站地址");
+define("_MD_LINKS_LIKLOGO","链接Logo");
+define("_MD_LINKS_LIKLOGOFORMAT","上传Logo的格式可以为 jpg, gif, png");
+define("_MD_LINKS_CONTACT","联系方式");
+define("_MD_LINKS_SELECTCAT","分类选择");
+define("_MD_LINKS_SAVEDSUCCESSTIP","保存成功，审核通过后方能正常显示");
+define("_MD_LINKS_AVTIVEERROR","操作有误！");
 
 ?>

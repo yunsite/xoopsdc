@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: links.php 1 2010-1-22 ezsky$
  */
 
@@ -85,7 +86,6 @@ class LinksLinks extends XoopsObject
           $form->addElement($logo_image);
           $form->addElement(new XoopsFormText(_AM_LINKS_SORT, 'link_order', 4, 2, $this->getVar('link_order')));
           $form->addElement(new XoopsFormText(_AM_LINKS_CONTACT, 'link_contact', 60, 255, $this->getVar('link_contact')));      
-          //$form->addElement( new XoopsFormTextArea('友情链接说明','link_desc', $this->getVar('link_desc'), 5, 80));
           $form->addElement(new XoopsFormRadioYN(_AM_LINKS_SHOW, 'link_status', $link_status));
           $form->addElement(new XoopsFormHidden('link_id', $this->getVar('link_id')));
           $form->addElement(new XoopsFormHidden('ac', 'insert'));

@@ -17,8 +17,5 @@
  * @version        $Id: footer.php 1 2010-1-22 ezsky$
  */
 
-if (count($xoBreadcrumbs) > 1) {
-    $xoopsTpl->assign('xoBreadcrumbs', $xoBreadcrumbs);
-}
 include XOOPS_ROOT_PATH . "/footer.php";
 ?>

@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>    
  * @version        $Id: blocks.php 1 2010-1-22 ezsky$
  */
 
@@ -56,12 +57,10 @@ function links_block_show($options){
     $display['links'] = $links;
     $display['display_css'] = XOOPS_URL.'/modules/links/templates/style.css';
     $block = array('display' => $display);
-
     return $block;
 }
 
 function links_block_edit($options){
-    // function XoopsBlockForm
     include_once XOOPS_ROOT_PATH."/modules/links/include/xoopsformloader.php";
     $form = new XoopsBlockForm("","","");    
     $categories = new XoopsFormSelect(_MB_LINKS_SHOWCAT, 'options[0]',$options[0]);
@@ -90,74 +89,5 @@ function links_block_edit($options){
     $display->addOption('4', _MB_LINKS_TITLEVER);
     $form->addElement($display, true);
     return $form->render();
-    /*
-    $cat_handler = xoops_getmodulehandler('category', 'links');
-    $criteria = new CriteriaCompo();
-    $criteria->setSort('cat_order');
-    $criteria->setOrder('ASC');
-    $category = $cat_handler->getList($criteria);
-    $form = "显示分类：<select id='options[0]' name='options[0]'>";
-    $form .="<option value='0'>全部</option>";
-    foreach($category as $k=>$v){ 
-        if ($k == $options[0]){
-            $sel = " selected='selected'";
-        }else{
-            $sel = "";
-        } 
-        $form .= "<option value='".$k."'$sel>".$v."</option>";
-    }
-    $published = "";
-    $datetime = "";
-    $link_order = "";
-    if($options[1] == 'published'){
-        $published =  " selected='selected'";
-    }elseif($options[1] == 'datetime'){
-        $datetime =  " selected='selected'";
-    }else{
-        $link_order =  " selected='selected'";
-    }
-    $form .= "</select>
-              <br /><br />显示顺序:
-              <select id='options[1]' name='options[1]'>
-                  <option value='published'".$published.">发布时间</option>
-                  <option value='datetime'".$datetime.">更新时间</option>
-                  <option value='link_order'".$link_order.">当选择分类时按照该分类下的链接排序显示</option>
-              </select>              
-              ";
-    $form .= "<br /><br />显示几条链接：<input type='text' name='options[2]' value='".$options[2]."' size='4' maxlength='4'/>";
-    $form .= "<br /><br />链接标题最大字符：<input type='text' name='options[3]' value='".$options[3]."' size='4' maxlength='4'/>";
-    $form .= "<br /><br />是否显示分类标题：<input type='radio' id='options[4]' name='options[4]' value='1'";
-    if ( $options[4] == 1 ) {
-        $form .= " checked='checked'";
-    }
-    $form .= " />&nbsp;"._YES."<input type='radio' id='options[4]' name='options[4]' value='0'";
-    if ( $options[4] == 0 ) {
-        $form .= " checked='checked'";
-    }
-    $form .= " />&nbsp;"._NO."";
-    $dis1 = "";
-    $dis2 = "";
-    $dis3 = "";
-    $dis4 = "";
-    if($options[5] == '1'){
-        $dis1 =  " selected='selected'";
-    }elseif($options[5] == '2'){
-        $dis2 =  " selected='selected'";
-    }elseif($options[5] == '3'){
-        $dis3 =  " selected='selected'";
-    }else{
-        $dis4 =  " selected='selected'";
-    }
-    $form .= "</select>
-              <br /><br />展示形式:
-              <select id='options[5]' name='options[5]'>
-                  <option value='1'".$dis1.">logo横向展示</option>
-                  <option value='2'".$dis2.">logo纵向展示</option>
-                  <option value='3'".$dis3.">标题横向展示</option>
-                  <option value='4'".$dis4.">标题纵向展示</option>
-              </select>              
-              ";    
-    return $form;
-    */
 }
 ?>

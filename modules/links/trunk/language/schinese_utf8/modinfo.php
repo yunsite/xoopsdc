@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: modinfo.php 1 2010-1-22 ezsky$
  */
 

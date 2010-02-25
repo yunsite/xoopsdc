@@ -14,11 +14,12 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>  
  * @version        $Id: action.links.php 1 2010-1-22 ezsky$
  */
 
 include "header.php";
-xoops_cp_header(2);
+xoops_cp_header();
 
 $ac = isset($_REQUEST['ac']) ? $_REQUEST['ac'] : 'display';
 $link_id = isset($_REQUEST['link_id']) ? $_REQUEST['link_id'] : '';
@@ -81,8 +82,7 @@ switch ($ac) {
             }
         }else{
             xoops_confirm(array('ok' => 1, 'link_id' => $link_id, 'sort'=>$sort, 'op' => 'delete'), $_SERVER['REQUEST_URI'], sprintf(_AM_LINKS_RESUREDELLIK,$link_obj->getVar('link_title')));
-        }
-        
+        }        
     break;
     
     default:

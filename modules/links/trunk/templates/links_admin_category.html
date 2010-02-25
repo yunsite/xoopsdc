@@ -1,4 +1,4 @@
-<div><a href="admin.category.php?op=new"><{$smarty.const._AM_LINKS_ADDCAT}></a></div>
+<a href="admin.category.php?op=new" ><{$smarty.const._AM_LINKS_ADDCAT}></a>
 <form id="form" name="form" method="post" action="admin.category.php">
     <table class="outer"> 
         <th align="center"><{$smarty.const._AM_LINKS_SORT}></th>
@@ -15,7 +15,7 @@
         </tr>
         <{/foreach}>
         <tr>
-            <td colspan="5"><div align="right"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>">&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+            <td colspan="3" align="right"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>">&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
 </form>

@@ -1,39 +1,30 @@
+<{* add style *}>
 <{$xoTheme->addStylesheet("modules/links/templates/style.css")}>
+
+<{* 1:logo horizontal show  
+    2:logo vertical show  
+    3:title horizontal show 
+    4:title vertical show  
+*}>
 <{if $block.display.display eq '1'}>
-    <div>
-        <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
-        <div>
-            <{foreachq item=link from=$block.display.links}>
-                <span id="LinkBlockHorizontalLogo"><a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_image}>" alt="<{$link.link_title}>" width="88" height="31"></a></span>
-            <{/foreach}>
-        </div>
-    </div>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_image}>" alt="<{$link.link_title}>" width="100" ></a>
+    <{/foreach}>
 <{elseif $block.display.display eq '2'}>
-    <div>
-        <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
-        <ul id="LinkBlockVerticalLogo">
-            <{foreachq item=link from=$block.display.links}>
-                <li><a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_image}>" alt="<{$link.link_title}>" width="88" height="31"></a></li>
-            <{/foreach}>
-        </ul>
-    </div>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_image}>" alt="<{$link.link_title}>" width="100"></a><br />
+    <{/foreach}>
 <{elseif $block.display.display eq '3'}>
-    <div>
-        <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
-        <div>
-            <{foreachq item=link from=$block.display.links}>
-                <span id="LinkBlockHorizontal"><a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><{$link.link_title}></a></span>
-            <{/foreach}>
-        </div>
-    </div>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><{$link.link_title}></a>
+    <{/foreach}>
 <{else}>
-    <div>
-        <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
-        <ul id="LinkBlockVertical">
-            <{foreachq item=link from=$block.display.links}>
-                <li><a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><{$link.link_title}></a></li>
-            <{/foreach}>
-        </ul>
-    </div>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><{$link.link_title}></a><br />
+    <{/foreach}>
 <{/if}>
  

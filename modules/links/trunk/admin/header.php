@@ -16,15 +16,9 @@
  * @author         Mengjue Shao <magic.shao@gmail.com>
  * @version        $Id: header.php 1 2010-1-22 ezsky$
  */
-
-include("../../../include/cp_header.php");
+ 
+include "../../../include/cp_header.php";
 include_once XOOPS_ROOT_PATH."/Frameworks/art/functions.admin.php";
-defined("FRAMEWORKS_ART_FUNCTIONS_INI") || include_once XOOPS_ROOT_PATH.'/Frameworks/art/functions.ini.php';
-load_functions("admin");
-
-if ( !@include_once(XOOPS_ROOT_PATH."/modules/".$xoopsModule->getVar("dirname")."/language/" . $xoopsConfig['language'] . "/main.php")) {
-    include_once(XOOPS_ROOT_PATH."/modules/".$xoopsModule->getVar("dirname")."/language/english/main.php");
-}
 
 if (!isset($xoopsTpl) || !is_object($xoopsTpl)) {
 	include_once(XOOPS_ROOT_PATH."/class/template.php");

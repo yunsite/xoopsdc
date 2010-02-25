@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: admin.php 1 2010-1-22 ezsky$
  */
 
@@ -63,7 +64,7 @@ define("_AM_LINKS_NOTLOGO", "暂无logo");
 define("_AM_LINKS_BASICTITLE", '模块基本信息');
 define("_AM_LINKS_DIRNAME", '模块目录名称：友情链接(Links)');
 define("_AM_LINKS_VERSION", "模块版本：1.2 Final");
-define("_AM_LINKS_AUTHOR", "模块开发作者：Magic.Shao E-mail:magic.shao@gmail.com");
+define("_AM_LINKS_AUTHOR", "模块开发作者： Magic.Shao, ezsky ");
 define("_AM_LINKS_OFFICIALURL", "模块开发官方站点：http://www.xoops.org.cn");
 define("_AM_LINKS_APPLY", "模块应用：友情链接管理");
 define("_AM_LINKS_PARAMETER", "模块参数");
@@ -74,7 +75,7 @@ define("_AM_LINKS_TOTAL", "友情链接总量：");
 define("_AM_LINKS_PUBLISH", '已发布：');
 define("_AM_LINKS_DRAFT", '草稿状态：');
 define("_AM_LINKS_LOGTITLE", '更改记录');
-define("_AM_LINKS_LOGSUBTITLE", '友情链接 1.0 版→友情链接 1.2 版');
+define("_AM_LINKS_LOGSUBTITLE", '友情链接 1.0 版 > 友情链接 1.2 版');
 define("_AM_LINKS_VERSIONONE", "友情链接 1.0 版");
 define("_AM_LINKS_FUNCONE", "1 支持分类管理");
 define("_AM_LINKS_FUNCTWO", "2 链接可以按发布时间、更新时间、链接状态及在某一分类下进行查看和管理");

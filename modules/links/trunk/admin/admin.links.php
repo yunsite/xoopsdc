@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>  
  * @version        $Id: admin.links.php 1 2010-1-22 ezsky$
  */
 
@@ -26,7 +27,8 @@ $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : (isset($_REQUEST['link_id']) ? 
 $cat_id = isset($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : '';
 $link_id = isset($_REQUEST['link_id']) ? $_REQUEST['link_id'] : '';
 $sort = isset($_REQUEST['sort']) ? $_REQUEST['sort'] : 'published';
-if(!empty($cat_id)) $op = 'category_display';
+
+if($cat_id) $op = 'category_display';
 $link_handler =& xoops_getmodulehandler('links', 'links');
 $cat_handler =& xoops_getmodulehandler('category', 'links');
 $count = $cat_handler->getCount();
@@ -70,24 +72,22 @@ switch ($op) {
             'release'=>_AM_LINKS_PUBLISHLIK,
             'draft'=>_AM_LINKS_NOTPUBLISHLIK
             );
+            
         $xoopsTpl->assign('sort', $sort);
         $xoopsTpl->assign('sorts_list', $sorts_list);
         $xoopsTpl->assign('links', $links);
         $xoopsTpl->assign('op', $op);
-        $xoopsTpl->assign('logo', $xoopsModuleConfig['logo']);
-        
+        $xoopsTpl->assign('logo', $xoopsModuleConfig['logo']);        
         $xoopsTpl->display("db:links_admin_links.html");
     break;
     
     case 'category_display':
-        //xoops_result($_POST);
         $cat_obj = $cat_handler->get($cat_id);
-        if(!is_object($cat_obj)) redirect_header('admin.links.php', 3, _AM_LINKS_CATIDERROR);
-        
+        if(!is_object($cat_obj)) redirect_header('admin.links.php', 3, _AM_LINKS_CATIDERROR);        
         $link_order = isset($_REQUEST['link_order']) ? $_REQUEST['link_order'] : '';
-        if(!empty($link_order)){
+        if($link_order){
             $ac_order = ContentOrder($link_order, 'links', 'link_order');
-            if(!empty($ac_order)) redirect_header('admin.links.php?cat_id='.$cat_id, 3, _AM_LINKS_UPDATEDSUCCESS);
+            if($ac_order) redirect_header('admin.links.php?cat_id='.$cat_id, 3, _AM_LINKS_UPDATEDSUCCESS);
         } 
         
         $criteria = new CriteriaCompo();

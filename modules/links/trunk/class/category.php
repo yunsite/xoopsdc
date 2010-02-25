@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: category.php 1 2010-1-22 ezsky$
  */
 
@@ -45,7 +46,6 @@ class LinksCategory extends XoopsObject
         $title = $this->isNew() ? _AM_LINKS_ADDCAT : _AM_LINKS_UPDATECAT;
         $form = new XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->addElement(new XoopsFormText(_AM_LINKS_CATNAME, 'cat_name', 60, 255, $this->getVar('cat_name', $format)), true);
-        //$form->addElement( new XoopsFormTextArea('简介','cat_desc', $this->getVar('cat_desc'), 5, 80));
         $form->addElement(new XoopsFormHidden('cat_id', $this->getVar('cat_id')));
         $form->addElement(new XoopsFormHidden('ac', 'insert'));
         $form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));

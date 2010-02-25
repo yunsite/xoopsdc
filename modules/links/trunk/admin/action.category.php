@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>  
  * @version        $Id: action.category.php 1 2010-1-22 ezsky$
  */
 
@@ -34,7 +35,7 @@ switch ($ac) {
             $cat_obj =& $cat_handler->create();         
             $message = _AM_LINKS_SAVEDSUCCESS;   
         }
-$cat_obj->setVar('cat_name', $_REQUEST['cat_name']);
+        $cat_obj->setVar('cat_name', $_REQUEST['cat_name']);
 
         if ($cat_handler->insert($cat_obj)) {
             redirect_header('admin.category.php', 3, $message);

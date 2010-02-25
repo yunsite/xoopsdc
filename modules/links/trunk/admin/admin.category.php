@@ -14,17 +14,17 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>  
  * @version        $Id: admin.category.php 1 2010-1-22 ezsky$
  */
 
 include "header.php";
 xoops_cp_header();
 loadModuleAdminMenu(1);
-include_once("../include/functions.php");
+include_once "../include/functions.php";
 
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : (isset($_REQUEST['cat_id']) ? 'edit' : 'display');
 $cat_id = isset($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : '';
-
 $cat_handler =& xoops_getmodulehandler('category', 'links');
 
 switch ($op) {
@@ -34,8 +34,7 @@ switch ($op) {
         if(!empty($cat_order)){
             $ac_order = ContentOrder($cat_order, 'category', 'cat_order');
             if(!empty($ac_order)) redirect_header('admin.category.php', 3, _AM_LINKS_UPDATEDSUCCESS);
-        } 
-        
+        }         
         $criteria = new CriteriaCompo();
         $criteria->setSort('cat_order');
         $criteria->setOrder('ASC');

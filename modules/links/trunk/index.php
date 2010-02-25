@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>   
  * @version        $Id: index.php 1 2010-1-22 ezsky$
  */
 
@@ -54,5 +55,6 @@ foreach($categories as $cat_id=>$category){
 $xoopsTpl->assign('categories', $categories);
 $xoopsTpl->assign('logo_display', $xoopsModuleConfig['logo']);
 $xoopsTpl->assign('application', $xoopsModuleConfig['application']);
+
 include 'footer.php';
 ?>

@@ -14,6 +14,7 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
  * @version        $Id: redirect.php 1 2010-1-22 ezsky$
  */
 
@@ -26,6 +27,5 @@ if (empty($url)) {
     header("location: $url");
 }
 
-include XOOPS_ROOT_PATH.'/header.php';
 include 'footer.php';
 ?>

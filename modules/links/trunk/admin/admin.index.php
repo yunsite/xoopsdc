@@ -14,11 +14,11 @@
  * @package        links
  * @since          1.0.0
  * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com> 
  * @version        $Id: admin.index.php 1 2010-1-22 ezsky$
  */
 
-include('header.php');
-
+include 'header.php';
 xoops_cp_header();
 loadModuleAdminMenu(0);
 
@@ -27,16 +27,12 @@ $cat_handler =& xoops_getmodulehandler('category', 'links');
 $links_handler =& xoops_getmodulehandler('links', 'links');
 
 $create = array(
-    //'category_dir' => XOOPS_ROOT_PATH.$xoopsModuleConfig['category_dir'],
     'logo_dir' => XOOPS_ROOT_PATH.$xoopsModuleConfig['logo_dir']
     );
     
-if(!empty($path)){
-    include_once("../include/functions.php");
+if($path){
+    include_once "../include/functions.php";
     switch ($path) {
-        case 'category_dir':
-            mkdirs($create['category_dir']);
-        break;
         case 'logo_dir':
             mkdirs($create['logo_dir']);
         break;
@@ -62,5 +58,5 @@ $xoopsTpl->assign('count', $count);
 $xoopsTpl->assign('logo', $xoopsModuleConfig['logo']);
 $xoopsTpl->display("db:links_admin_index.html");
 
-xoops_cp_footer();
+include "footer.php";
 ?>
