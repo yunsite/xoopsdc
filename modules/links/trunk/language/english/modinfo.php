@@ -20,7 +20,7 @@
 
 //xoops_version.php
 define('_MI_LINKS_NAME',"友情链接");
-define('_MI_LINKS_DESC',"关于XOOPS的模块的友情链接模块");
+define('_MI_LINKS_DESC',"关于XOOPS模块的友情链接");
 define('_MI_LINKS_BLOCK',"友情链接");
 define('_MI_LINKS_CON_LINK_DIR',"链接Logo保存路径");
 define('_MI_LINKS_CON_LINK',"是否开启链接logo上传功能");
