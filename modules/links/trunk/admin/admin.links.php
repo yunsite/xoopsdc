@@ -86,7 +86,7 @@ switch ($op) {
         if(!is_object($cat_obj)) redirect_header('admin.links.php', 3, _AM_LINKS_CATIDERROR);        
         $link_order = isset($_REQUEST['link_order']) ? $_REQUEST['link_order'] : '';
         if($link_order){
-            $ac_order = ContentOrder($link_order, 'links', 'link_order');
+            $ac_order = LinksContentOrder($link_order, 'links', 'link_order');
             if($ac_order) redirect_header('admin.links.php?cat_id='.$cat_id, 3, _AM_LINKS_UPDATEDSUCCESS);
         } 
         

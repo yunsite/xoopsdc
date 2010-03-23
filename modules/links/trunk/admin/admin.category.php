@@ -32,7 +32,7 @@ switch ($op) {
     case 'display':
         $cat_order = isset($_REQUEST['cat_order']) ? $_REQUEST['cat_order'] : '';
         if(!empty($cat_order)){
-            $ac_order = ContentOrder($cat_order, 'category', 'cat_order');
+            $ac_order = LinksContentOrder($cat_order, 'category', 'cat_order');
             if(!empty($ac_order)) redirect_header('admin.category.php', 3, _AM_LINKS_UPDATEDSUCCESS);
         }         
         $criteria = new CriteriaCompo();

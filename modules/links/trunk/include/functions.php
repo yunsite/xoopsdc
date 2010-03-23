@@ -24,7 +24,7 @@ if (!defined("XOOPS_ROOT_PATH")) exit();
   * @ $ObjectName is you class name
   * @ $$FieldName is your data table field names
   */
-function ContentOrder($ObjOrder, $ObjectName, $FieldName){
+function LinksContentOrder($ObjOrder, $ObjectName, $FieldName){
     if ( isset($ObjOrder) || is_array($ObjOrder) ){
         $handler =& xoops_getmodulehandler($ObjectName, 'links');
         foreach ($ObjOrder as $id=>$order){
