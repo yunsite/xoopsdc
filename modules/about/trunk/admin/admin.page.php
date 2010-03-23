@@ -129,7 +129,7 @@ case "save":
     
     
     include_once dirname(dirname(__FILE__)) . '/include/functions.php';
-	if(mkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
+	if(Aboutmkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
     
     // upload image
     if (!empty($_FILES['userfile']['name'])) {

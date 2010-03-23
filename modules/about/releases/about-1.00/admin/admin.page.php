@@ -131,7 +131,7 @@ case "save":
     if (!empty($_FILES['userfile']['name'])) {
 		include_once XOOPS_ROOT_PATH.'/class/uploader.php';
 		include_once dirname(dirname(__FILE__)) . '/include/functions.php';
-		if(mkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
+		if(Aboutmkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
 		$allowed_mimetypes = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png', 'image/x-png');
 	    $maxfilesize = 500000;
 	    $maxfilewidth = 1200;
