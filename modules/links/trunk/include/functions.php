@@ -37,14 +37,14 @@ function LinksContentOrder($ObjOrder, $ObjectName, $FieldName){
   	return false;
 }
 
-function mkdirs($dir, $mode = 0777, $recursive = true) {
+function Linksmkdirs($dir, $mode = 0777, $recursive = true) {
   if( is_null($dir) || $dir === "" ){
     return $dir;
   }
   if( is_dir($dir) || $dir === "/" ){
     return $dir;
   }
-  if( mkdirs(dirname($dir), $mode, $recursive) ){
+  if( Linksmkdirs(dirname($dir), $mode, $recursive) ){
     return mkdir($dir, $mode);
   }
   return $dir;

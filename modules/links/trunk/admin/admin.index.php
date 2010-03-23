@@ -34,7 +34,7 @@ if($path){
     include_once "../include/functions.php";
     switch ($path) {
         case 'logo_dir':
-            mkdirs($create['logo_dir']);
+            Linksmkdirs($create['logo_dir']);
         break;
         default:
         break;
