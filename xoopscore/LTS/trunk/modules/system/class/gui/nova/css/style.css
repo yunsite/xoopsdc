@@ -1,0 +1,603 @@
+	/* ==================== General definitions ==================== */
+html {
+	
+}
+
+body {
+	background-color: #FFF;
+	font-size: 12px;
+	font-family: Verdana, tahoma, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: none;
+}
+
+hr {
+	height: 3px;
+	border: 3px #E18A00 solid;
+	width: 95%;
+}
+
+ul {
+	margin: 2px;
+	padding: 2px;
+	list-style: decimal inside;
+	text-align: left;
+}
+
+li {
+	margin-left: 2px;
+	list-style: square inside;
+	color: #000;
+}
+
+h1 {	font-size: 20px;}
+
+h2 {	font-size: 18px;}
+
+h3 {	font-size: 16px;}
+
+h4 {	font-size: 14px;}
+
+table {	width: 100%;}
+
+th {
+	background-color: #6cf;
+	color: #fff;
+	padding: 3px 0;
+	vertical-align: middle;
+}
+
+a:link {
+	text-decoration: none;
+	color: #4177A6;
+	font-weight: bold;
+	background-color: transparent;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #4177A6;
+	font-weight: bold;
+	background-color: transparent;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #FF4500;
+	font-weight: bold;
+	background-color: transparent;
+}
+
+/* ==================== Code and Quote Definition ==================== */
+.xoopsCode {
+	font-size: 11px;
+	color: #006600;
+	background-color: #FAFAFA;
+	border: #c2cdd6 1px dashed;
+}
+
+.xoopsQuote {
+	font-size: 11px;
+	color: #444;
+	line-height: 125%;
+	text-align: justify;
+	background-color: #FAFAFA;
+	border: #c2cdd6 1px dashed;
+}
+
+/* ==================== Links for Quotes ==================== */
+.xoopsQuote a:link,.xoopsQuote a:visited {
+	color: #444;
+	font-weight: bold;
+	background-color: transparent;
+}
+
+.xoopsQuote a:hover,.xoopsQuote a:active {
+	color: #1778cb;
+	background-color: transparent;
+}
+
+/* ==================== Redirect messages ==================== */
+.errorMsg {
+	background: #FBE3E4;
+	color: #D12F19;
+	text-align: center;
+	border: 1px solid #FBC2C4;
+	padding: 8px;
+	margin:5px;
+	font-weight: bold;
+}
+
+.confirmMsg {
+	background-color: #FFF09B;
+	color: #FF4500;
+	text-align: center;
+	border: 1px solid #FFD700;
+	font-weight: bold;
+	width: 80%;
+	margin: 0 auto;
+	padding: 8px;
+}
+
+/* ==================== For redirect pages ====================*/
+.message,.notreload {	text-align: center;}
+
+/* ==================== General small ==================== */
+.fontSmall {
+	font-size: 10px;
+	background-color: transparent;
+}
+
+a.fontSmall {	color: #006699;}
+
+a.fontSmall:hover {
+	color: #C23030;
+	text-decoration: underline;
+}
+
+/*==================== forms elements ==================== */
+input,textarea,select {
+	border: 1px solid #ccc;
+	font-size: 12px;
+	font-family: tahoma, Helvetica, sans-serif;
+	background-color: #fff;
+}
+
+input:focus,textarea:focus,select:focus {	border: 1px solid #999999;}
+
+.outer {
+	width: 100%;
+	border: 1px solid #ccc;
+
+}
+
+.head {
+	background-color: #EBEBEB;
+	padding: 3px;
+	font-weight: bold;
+}
+
+.even {
+	background-color: #fff;
+	padding: 3px;
+	border-bottom: 1px solid #ccc;
+}
+
+.odd {
+	background-color: #DFDFDF;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+.foot {
+	background-color: #E1E7EF;
+	padding: 5px;
+	font-weight: bold;
+}
+
+tr.head td {
+	background-color: #BDE3FB;
+	padding: 5px;
+	font-weight: bold;
+}
+
+tr.even td {
+	background-color: #fff;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+tr.odd td {
+	background-color: #EFEFEF;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+tr.foot td {
+	background-color: #E1E7EF;
+	padding: 5px;
+	font-weight: bold;
+}
+
+#nova-header {
+	padding: 0;
+	text-align: left;
+	background: url(../img/bg_header.png) repeat-x;
+	height: 52px;
+}
+#nova-header h1 {
+    font-family: Arial, tahoma, Helvetica, sans-serif;
+    display: inline;
+    color:#fff;
+    font-size:26px;
+    padding: 0 10px 0 20px;
+}
+#nova-header a {
+    background: url(../img/bg_yourHomeR.png) no-repeat scroll right top;
+    color:#666; 
+    font-weight:normal;
+    display:inline-block;
+    padding:0 5px 0 0;
+}
+#nova-header a span { 
+    background: url(../img/bg_yourHomeL.png) no-repeat left top;
+    display:inline-block;
+    line-height:18px;
+    height:18px;
+    padding: 0 0 0 5px;   
+    
+}
+#nova-header #logo {
+    background: url(../img/logo.png) no-repeat;
+	width: 153px;
+	height:52px;
+}
+#logoHead td.other {
+	float: right;
+	/*height:auto;*/
+	width:50px;
+}
+
+#navbarCP {
+	background: url(../img/bg_nav.png) repeat-x;
+	padding: 0 4px;
+	font-weight: normal;
+	font-family: tahoma, Helvetica, sans-serif;
+	height: 28px;
+	list-style: none;
+	border-bottom:1px solid #ccc;
+}
+
+#headnav {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+/* ==================== start nav menu ==================== */
+#navbarCP a { font-weight:normal; color:#666; text-decoration:none; }
+#navbarCP ul.menu {padding:0; margin:0; display:inline; line-height:28px;} 
+#navbarCP ul.menu li {margin:0; padding:0 4px 0 6px; float:left; position:relative; height:28px;list-style:none;}
+#navbarCP ul.menu li.hover {padding:0 3px 0 5px;  border-top:none; border-left:solid 1px #E5E5E5;  border-right:solid 1px #999; border-bottom:none;}
+#navbarCP ul.menu li.expand {padding-right: 24px; background:  url(../img/arrow.png) no-repeat scroll center right;}
+#navbarCP ul.menu li.expanded {padding-right: 24px; background:#fff url(../img/arrow_hover.png) no-repeat scroll center right; }
+
+#navbarCP ul.menu li a {display:block;}
+#navbarCP ul.sub_menu { display:none; position:absolute; z-index:10; left:-1px; top:0px; margin:28px 0 0 0; background-color:#fff; border-top:solid 1px #E5E5E5; border-left:solid 1px #E5E5E5; border-right:solid 1px #999999; border-bottom:solid 1px #999999; padding:4px; width:160px; }
+#navbarCP ul.sub_menu li {padding:0; margin:0;float:none; display:block;}
+* html #navbarCP ul.sub_menu { margin-top:28px; } /* IE6 */
+*+html #navbarCP ul.sub_menu { margin-top:28px; } /* IE7 */
+#navbarCP ul.sub_menu a {padding:0 4px 0 6px;display:block;} 
+#navbarCP ul.menu .leaf a:hover,#navbarCP ul.sub_menu a:hover{color:#fff; text-decoration:underline; background-color:#0099ff; }
+#navbarCP a.item_line { border-top:solid 1px #E5E5E5; padding-top:6px !important; margin-top:3px; }
+
+/* ==================== end nav menu ==================== */
+#userMenu {
+	float: right;
+	height:28px;
+	line-height:28px;
+	color: #ccc;
+}
+#userMenu .userName {
+    font-weight: bold;
+    color: #069;
+}
+#userMenu a {
+    font-weight: normal;
+    color: #333;
+}
+#userMenu a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+#containBodyCP {
+	padding: 0;
+	margin: 0;
+}
+#containBodyCP #leftSide {
+   
+    width:200px;
+    position:absolute;
+    z-index:0;
+    
+}
+#leftSide a {
+    font-weight:normal;
+}
+#leftSide .modMame {
+    font-size:19px;
+    padding:5px 0 5px 5px ;
+    border-bottom:1px solid #ccc;
+    color:#09f;
+    font-weight:bold;
+}
+#containBodyCP #xo-content {
+    
+    
+}
+#containBodyCP .warp{
+  margin:10px 0;
+   padding:0 10px;
+    _height:430px;
+    min-height:430px;
+}
+#containBodyCP .withSideBar{
+    padding:20px 0 0 0;
+    margin: 0 0 0 200px;
+    border-left:1px solid #ccc;
+    _height:430px;
+    min-height:430px;
+}
+#containBodyCP .withSideBar h3,#containBodyCP .withSideBar h4 {
+    margin-top:0;
+}
+#leftSide .modMenu ul {
+    margin:0;
+    padding:0;
+    display:block;
+}
+#leftSide .modMenu ul li {
+    padding:0;
+    margin:0;
+    list-style:none;
+    list-style-position:inside;
+    border-bottom:1px solid #ccc;/**/
+}
+#leftSide .modMenu ul li a {
+    display:block;
+    background: url(../img/bg_menuItem.png) repeat-x scroll left top;/**/
+    height: 26px;
+    line-height:26px;
+    color:#333;
+    font-size:14px;
+    padding:0 0 0 15px;
+}
+#leftSide .modMenu ul li a:hover {
+    background: url(../img/bg_menuItem.png) repeat-x scroll left bottom;
+    color:#fff;
+}
+
+#navOptionsCP {
+	padding: 0 5px 0 5px;
+	height: 38px;
+	background: url(../img/dark/dark-navcp.png) repeat-x;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+#navOptionsCP a {
+	border: 1px solid #00536C;
+	height: 32px;
+	display: block;
+	width: 32px;
+	float: right;
+	margin-right: 2px;
+	margin-left: 0;
+	margin-top: 1px;
+	margin-bottom: 0
+}
+
+#navOptionsCP a:hover {
+	background-color: #E0E6EF;
+	border-color: #ADD8E6;
+}
+
+#navOptionsCP .modname {
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	color: #1d1f24;
+	margin-top: 4px;
+}
+
+#navOptionsCP .module {
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	color: Silver;
+	margin-top: 4px;
+}
+
+.CPrssLinks {
+	padding: 4px;
+}
+
+.CPrssLinks a {
+	font-size: 12px;
+	background: url(../img/item.png) no-repeat left;
+	padding: 2px;
+	display: block;
+	padding-left: 18px;
+}
+
+#xo-footer {
+    clear:both;
+	padding: 4px;
+	text-align: center;
+	font-size: 10px;
+	color: #666;
+}
+
+/* ==================== From the xoops.css  ==================== */
+.CPbigTitle {
+	font-size: 12px;
+	color: #606060;
+	background-position: left top;
+	background-repeat: no-repeat;
+	font-weight: bold;
+	height: 30px;
+	vertical-align: middle;
+	padding: 10px 40px 0 40px;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold
+}
+
+.CPindexOptions {
+	padding: 4px;
+	vertical-align: top;
+}
+
+#xo-index {
+	width: 100%;
+	border: 0;
+}
+
+#xo-modules {	width: 69%;}
+
+#xo-accordion {	width: 29%;}
+
+.CPmediumTitle {
+	font-weight: bold;
+	font-size: 14px;
+	color: #FF4500;
+}
+
+.systemicons {}
+
+.cpiconmodules,.cpicon {
+	margin: 3px;
+	font-family: tahoma, Helvetica, sans-serif;
+	text-align: center;
+}
+
+.cpiconmodules {
+	min-height: 250px; /* for min height of module option*/
+}
+
+.cpicon a {
+	display: block;
+	float: left;
+	height: 75px !important;
+	width: 60px !important;
+	vertical-align: middle;
+	text-decoration: none;
+	background: #f9f9f9;
+	padding: 2px;
+	margin: 3px;
+	color: #666;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.cpiconmodules a {
+	display: block;
+	float: left;
+	height: 95px !important;
+	height: 95px;
+	width: 90px !important;
+	width: 90px;
+	vertical-align: middle;
+	text-decoration: none;
+	background: #f9f9f9;
+	padding: 2px 5px 1px 5px;
+	margin: 3px;
+	color: #666;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.cpicon a:hover,.cpiconmodules a:hover {
+  color: #1E90FF;
+	border: 1px solid #1E90FF;
+
+}
+
+.cpicon img,.cpiconmodules  img {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.cpicon span,.cpiconmodules span {
+
+	font-weight: bold;
+	display: block;
+}
+
+.cpicon span.uno,.cpiconmodules span.uno {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+	color: Blue;
+}
+
+.cpicon span.unor,.cpiconmodules span.unor {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #CC0000;
+}
+
+/* ==================== For accordion menu ====================*/
+.menu_list {	width: 100%;}
+
+.menu_head {
+	padding: 5px 10px;
+	cursor: pointer;
+	position: relative;
+	margin: 1px;
+	background: url(../img/accordion.png) repeat-x !important;
+	color: #fff;
+	border: 1px solid #FFF;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.menu_body {
+}
+
+.menu_body a {
+	display: block;
+	color: #3E728F;
+	padding-left: 10px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.menu_body a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+/* ==================== for xoops gift shop ====================*/
+.xgiftshop {	text-align: center !important;}
+
+/* ==================== for main logo ====================*/
+#main_logo {
+	float: left;
+	background: url(../img/dark/header-logo_big.png) no-repeat !important
+		;
+	height: 72px !important;
+	width: 160px !important;
+}
+
+/*==================== for tooltip =========================*/
+#tooltip {
+	position: absolute;
+	border: 1px solid #333;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+	background: #f7f5d1;
+	padding: 2px 5px;
+	color: #333;
+	display: none;
+}
