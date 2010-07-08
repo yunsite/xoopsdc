@@ -1,0 +1,201 @@
+/*--------------------------------------------------------------*/
+/* CSS and Graphics are released under Creative Commons License */
+/* http://creativecommons.org/licenses/by-nc-sa/2.1/jp/         */
+/* Copyright (C) 2007, Masanao Takahashi @ BCOOL Inc.           */
+/* http://2bcool.net/                                           */
+/* This style is for printing dark background themes.           */
+/*--------------------------------------------------------------*/
+
+.noprint {
+	display:none;
+}
+
+body {
+	background-color: #FFF;
+	color: #666;
+	font-family: Verdana, Helvetica, '£Í£Ó £Ð¥´¥·¥Ã¥¯', 'Hiragino Kaku Gothic Pro', '¥Ò¥é¥®¥Î³Ñ¥´ Pro W3', osaka, sans-serif;
+	font-size: 75%;
+	margin: 0;padding: 0;
+	}
+
+img {
+	border:none;
+}
+/* ------------ Header elements ------------ */
+
+#header {
+	display:none;
+}
+
+/* ------------ Content Area ------------ */
+.centerCcolumn {
+	clear:both;
+}
+.centerRcolumn {
+	width: 48%;
+	padding: 0 0 0 3px;
+	float: right;
+	overflow:hidden;
+}
+.centerLcolumn {
+	width: 49%;
+	padding: 0 3px 0 0;
+	float: left;
+	overflow:hidden;
+}
+.blockTitle {
+	font: bold 100%/normal 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, 'Hiragino Kaku Gothic Pro', osaka, sans-serif;
+}
+#page_top {
+	display:none;
+}
+.leftcolumn {
+	display:none;
+}
+.rightcolumn {
+	display:none;
+}
+#xoops_banner {
+	display:none;
+}
+#footer {
+	display:none;
+}
+/* ------------ for table ------------ */
+.outer {
+	border: 1px solid #DDD;
+}
+th {
+	padding: 3px;
+	vertical-align: middle;
+	font-weight: normal;
+	color: #666;
+	border-bottom: 1px solid #CCC;
+	background: #E8F4E2;
+}
+.head {
+	padding: 5px;
+	color: inherit;
+	border-bottom: 1px solid #CACACA;
+	background: #EDF8E8;
+}
+.even {
+	padding: 2px;
+	color: inherit;
+	border-bottom: 1px solid #CACACA;
+	background: #F6FBF4;
+}
+.odd {
+	padding: 2px;
+	color: inherit;
+	border-bottom: 1px solid #CACACA;
+	background: #F6F9F5;
+}
+.foot {
+	padding: 5px;
+	font-weight: bold;
+	color: inherit;
+	background: #EDF8E8;
+}
+tr.even td {
+	padding: 2px;
+	border-bottom: 1px solid #CACACA;
+}
+tr.odd td {
+	padding: 2px;
+	border-bottom: 1px solid #CACACA;
+}
+tr.even {
+	color: inherit;
+	background: #F6FBF4;
+}
+tr.odd {
+	color: inherit;
+	background: #F6F9F5;
+}
+/* ------------ quote and code ------------ */
+div.xoopsCode {
+	background: #EFEFEF;
+	color:inherit;
+	border: 1px solid #CCC;
+	padding: 6px;
+	overflow: auto;
+	width: auto;
+}
+div.xoopsQuote { 
+	background: #FDFDFD;
+	color:inherit;
+	border-left: 5px solid #DDD;
+	overflow: auto;
+	width: auto;
+	margin-left:15px;
+}
+/* ------------ for comment ------------ */
+.comTitle {
+	margin-bottom: 2px;
+}
+.comText {
+	padding: 2px;
+}
+.comUserStat {
+	font-size:80%;
+	border: 1px solid #CCC;
+	margin: 2px;
+	padding: 2px;
+	background: #FFF;
+	color:inherit;
+}
+.comUserStatCaption {
+	font-weight: normal;
+}
+.comUserRank {
+	margin: 2px;
+}
+.comUserRankText {
+	font-size:80%;
+}
+.comUserImg {
+	margin: 2px;
+}
+.comDate {
+	font-size:80%;
+}
+.comDateCaption {
+}
+/* ------------ for bulletin or news module ------------ */
+.itemHead {
+	padding: 2px 5px;
+	font-weight: bold;
+	border-bottom: 1px dotted #CCC;
+}
+.itemInfo {
+	text-align: right;
+	padding: 3px 8px;
+}
+.itemTitle a {
+	font-size: 120%;
+	font-weight: bold;
+	font-variant: small-caps;
+	text-decoration: none;
+}
+.itemPoster {
+	font-size: 90%;
+}
+.itemPostDate {
+	font-size: 90%;
+}
+.itemStats {
+	font-size: 90%;
+}
+.itemBody {
+	padding: 0 8px 0 13px;
+	overflow: hidden;
+}
+.itemText {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	line-height: 1.5em;
+}
+.itemFoot {
+	display:none;
+}
