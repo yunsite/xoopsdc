@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+	<{includeq file="$theme_tpl/xo_metas.html"}>
+	<{includeq file="$theme_tpl/xo_scripts.html"}>  
+</head>
+<body id="<{$xoops_dirname}>" class="<{$xoops_langcode}>">
+    <div id="nova-header">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>
+                    <h1><{$xoops_sitename}></h1>
+                    <a class="yourHome" href="<{xoAppUrl /}>" title="网站首页"><span>网站首页</span></a>
+                </td>
+                <td id="logo" class="">
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <{includeq file="$theme_tpl/xo_menu.html"}>
+	<div id="containBodyCP">
+	<{if $modules OR $cpanel}>
+		<div id="bodyCP" class="warp">
+        
+        
+				<{includeq file="$theme_tpl/xo_icons.html"}>
+					<table id="xo-index ">
+						<tr>
+							<td id="xo-modules" class="CPindexOptions"><{includeq file="$theme_tpl/xo_modules.html"}></td>
+							<td id="xo-accordion" class="CPindexOptions"><{includeq file="$theme_tpl/xo_accordion.html"}></td>
+						</tr>
+					</table>
+
+          <{if $warninginstall}><div class="errorMsg"><div><{$warninginstall}></div></div><{/if}>
+          <{if $warningwriteable_mainfile}><div class="errorMsg"><div><{$warningwriteable_mainfile}></div></div><{/if}>
+          <{if $warningwriteable_cache}><div class="errorMsg"><div><{$warningwriteable_cache}></div></div><{/if}>
+          <{if $warningwriteable_upload}><div class="errorMsg"><div><{$warningwriteable_upload}></div></div><{/if}>
+          <{if $warningwriteable_compile}><div class="errorMsg"><div><{$warningwriteable_compile}></div></div><{/if}>
+					<{if $warningxoopslibinside_path}><div class="errorMsg"><div><{$warningxoopslibinside_path}></div></div><{/if}>
+          <{if $warningxoopslibinside_var}><div class="errorMsg"><div><{$warningxoopslibinside_var}></div></div><{/if}>  
+		</div>
+		<{/if}>
+
+			<{if $xoops_contents}>
+			<{if $moddir!='system' && $mod_options}>
+			<div id="leftSide">
+    			<div class="modMame"><{if $modImage}><img src="<{$modImage}>" width="16" height="16" /> <{/if}><{$modname}></div>
+    			<div class="modMenu">
+                    <ul>
+                        <{foreach item=op from=$mod_options}>
+                        <li><a href="<{$op.link}>" title="<{$op.title}>"><{$op.title}></a></li>
+                        <{/foreach}>
+                    </ul>
+                    
+                    <{if $moddir!='system' && $mod_options}>
+                        <p style="padding: 0 0 0 10px;"><a href="<{$xoops_url}>/modules/system/admin.php?fct=preferences&amp;op=showmod&amp;mod=<{$modid}>" title="<{$lang_preferences}>">» 模块参数设置</a></p>
+                    <{/if}>
+                </div>
+        </div>
+        <{/if}>
+            <div id="xo-content" <{if $moddir!='system' && $mod_options}>class="withSideBar"<{else}>class="warp"<{/if}>><{$xoops_contents}></div>
+            <{/if}>
+            <hr style="border:none; border-top:1px solid #ccc; width:100%; clear:both; " />
+	</div>
+	<{includeq file="$theme_tpl/xo_footer.html"}>
+</body>
+</html>

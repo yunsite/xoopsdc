@@ -1,0 +1,17 @@
+<div id="content_box"> 
+    <ul style="float:left;">
+        <{foreach item=item from=$case_menu}>
+        <li class="child"><a <{if $case.case_id eq $item.case_id}>class="current"<{/if}> href="case.php?service_id=<{$case.service_id}>&amp;case_id=<{$item.case_id}>"><{$item.case_menu_title}></a></li>
+        <{/foreach}>
+    </ul>
+    
+    <div style="float:left;margin-left:30px;">
+        <{if $case.case_image}><div><strong>案例的题头图片：</strong><img src="<{$xoops_url}>/uploads/portfolio/<{$case.case_image}>" width="200"/></div><{/if}>    
+        <{if $case.case_summary}><div><strong>案例的摘要：</strong><{$case.case_summary}></div> <{/if}>   
+        <{if $case.case_description}><div><strong>案例的介绍：</strong><{$case.case_description}></div><{/if}>
+        <{if $case.case_gallery}><div><strong>案例的相册：</strong><{foreach item=gallery key=key from=$case.case_gallery}><img src="<{$xoops_url}>/uploads/portfolio/gallery/thumb_<{$gallery.image_file}>"><span><{$gallery.image_title}></span><{/foreach}></div> <{/if}>
+    </div>    
+    
+
+    
+</div>

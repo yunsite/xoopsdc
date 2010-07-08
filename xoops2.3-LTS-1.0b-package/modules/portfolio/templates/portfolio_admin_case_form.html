@@ -1,0 +1,37 @@
+<div>
+    <form name="<{$form.name}>" id="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}>>
+        <table class="outer" width="100%">
+                <tr class="head">
+                    <th colspan="2"><{$form.title}></th>
+                </tr>
+                <{foreachq item=item from=$form.elements}>
+                <{if !$item.hidden}>
+                <tr>
+                <td class="even" width="10%"><{$item.caption}><{if $item.required}><em>*</em><{/if}></td>
+                <td class="odd"><{$item.body}></td>
+                </tr>
+                <{else}>
+                    <{$item.body}>
+                <{/if}>
+            <{/foreach}>
+        </table>
+    </form>
+</div>
+<{$form.javascript}>
+
+<script src="<{$xoops_url}>/modules/portfolio/include/jquery.js" type="text/javascript"></script>
+<script src="../include/jquery.js" type="text/javascript"></script>
+<SCRIPT language=JavaScript>
+$(document).ready(function(){
+	var fileName = $("input[name='gallery']").attr("name");
+    var i = 0;
+	  $("#addMore").click(function(){
+        i = ++i;
+    	$(this).parent().before('<div>图片名称&nbsp;<input type="text" value="" maxlength="255" size="30" id="'+fileName+i+'name" name="xoops_upload_file_name[]"><br />图片上传&nbsp;<input type="file" name="'+fileName+i+'" id="'+fileName+i+'" /><br /><input type="hidden" name="xoops_upload_file[]" id="xoops_upload_file[]" value="'+fileName+i+'" />图片描述&nbsp;<textarea cols="50" rows="5" id="'+fileName+i+'" name="xoops_upload_file_desc[]"></textarea> <a id="del'+i+'" href="javascript:void(0);" onclick="deleteUploadfeild('+i+');">X</a></div>');
+    });
+});
+function deleteUploadfeild(id){
+    var id = '#del'+id;
+    $(id).parent().remove();
+};
+</script>

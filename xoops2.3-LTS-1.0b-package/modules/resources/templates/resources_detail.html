@@ -1,0 +1,105 @@
+<{$xoTheme->addStylesheet("modules/`$xoops_dirname`/templates/style.css")}>
+<div id="support_index_crumb" class="breadcrumbs">
+    <{foreach item=itm from=$xoBreadcrumbs name=bcloop}>
+       
+        <{if $itm.link}>
+            <a href="<{$itm.link}>" title="<{$itm.title}>"><{$itm.title}></a>
+        <{else}>
+            <{$itm.title}>
+        <{/if}>
+        <{if !$smarty.foreach.bcloop.last}>
+            &raquo;
+        <{/if}>
+    <{/foreach}>
+</div>
+
+<{if $is_uploader}><div align="right"><a href="upload.php">发布资源</a></div><{/if}>
+
+<div id="resources" style="padding: 10px;">
+<h2><{$resources.res_subject}></h2>
+<div style="padding: 3px 5px; background-color: #f4f4f4; margin-bottom: 10px;">
+    分类: <a href="index.php?cat_id=<{$resources.cat_id}>"><{$resources.cat_name}></a> 
+    日期: <{$resources.update_time}> 
+    附件: <{$resources.res_attachment}>&nbsp;&nbsp;&nbsp;&nbsp;
+    <{if $is_uploader}><{if $is_editor}><a href="upload.php?res_id=<{$resources.res_id}>">修改</a><{/if}><{/if}>
+</div>
+<div style="padding: 3px; line-height: 20px;"><{$resources.res_content}></div>
+<br />
+<ul>
+<{foreachq item=item from=$attachments}>
+    <li style="padding: 3px; line-height: 20px;">
+        <a href="downloads.php?id=<{$item.att_id}>">下载 (<{$item.att_downloads}>)</a> 
+        <{$item.att_filename}> 
+        (大小：<{$item.att_size}>) 
+        (日期：<{$item.update_time}>)
+    </li>
+<{/foreach}>
+</ul>
+</div>
+
+<div style="text-align: center; padding: 3px; margin: 3px;">
+  <{$commentsnav}>
+  <{$lang_notice}>
+</div>
+<div style="margin: 3px; padding: 3px;">
+<!-- start comments loop -->
+<{if $comment_mode == "flat"}>
+  <{include file="db:system_comments_flat.html"}>
+<{elseif $comment_mode == "thread"}>
+  <{include file="db:system_comments_thread.html"}>
+<{elseif $comment_mode == "nest"}>
+  <{include file="db:system_comments_nest.html"}>
+<{/if}>
+<!-- end comments loop -->
+</div>
+
+<hr />
+<!-- start rate -->
+<{if $canRate}>
+<script type="text/javascript" src="include/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="include/rater-star/jquery.rater.js"></script>
+<link href="include/rater-star/jquery.rater.css" rel="stylesheet"/>
+
+<div id="res-rate<{$resources.res_id}>">
+<h3>评分 : </h3>
+<span id="rateValue<{$resources.res_id}>"><{$resources.res_rating}>/<{$resources.res_rates}></span>
+<div id="rateform<{$resources.res_id}>">
+<form action="<{$xoops_url}>/modules/<{$xoops_dirname}>/action.rate.php" method="post">
+    <div class="rate-item">
+    <{php}>
+    for($i=5;$i>0;$i--) echo'<span><input type="radio" name="rate" id="rate'.$i.'" value="'.$i.'" />'.$i.'</span>';
+    <{/php}>
+        <span>
+            <input type="hidden" name="res_id" value="<{$resources.res_id}>" />
+            <input type="submit"  value="投票" />
+        </span>
+    </div>
+</form>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+var raterOptions	= {
+    value : <{$resources.res_rating}>,
+	max	: 5, 
+	url		: '<{$xoops_url}>/modules/<{$xoops_dirname}>/ajax.action.rate.php',
+	method	: 'get',
+	data : <{$resources.res_id}>,
+	after_ajax	: function(ret) {
+		this.value	= ret.rating;
+		this.enabled= false;
+		alert(ret.msg);
+		$("#rateValue<{$resources.res_id}>").replaceWith(ret.rating+'/'+ret.rates);
+		$("#rateform<{$resources.res_id}>").rater(this);
+    }
+}
+
+$("#rateform<{$resources.res_id}>").empty().rater(raterOptions);
+
+});
+</script>
+</div>
+<{/if}>
+<!-- end rate -->
+<!-- counter -->
+<img src="<{$xoops_url}>/modules/<{$xoops_dirname}>/counter.php?res_id=<{$resources.res_id}>" width="1px" height="1px" />

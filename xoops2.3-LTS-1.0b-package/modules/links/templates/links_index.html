@@ -1,0 +1,12 @@
+<{* add style *}>
+<{$xoTheme->addStylesheet("modules/links/templates/style.css")}>
+
+<{* application join *}>
+<{if $application}><a href="join.php"><{$smarty.const._MD_LINKS_APPLYJOIN}></a><{/if}>
+
+<{foreach item=category from=$categories}>
+<h2><{$category.cat_name}></h2>
+    <{foreach item=link from=$category.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_logo}>" alt="<{$link.link_title}>" width="100" /></a>
+    <{/foreach}>
+<{/foreach}>

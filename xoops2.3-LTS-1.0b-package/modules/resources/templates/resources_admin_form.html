@@ -1,0 +1,56 @@
+<{if $attachments}>
+<table class="outer" align="left">
+    <tr class="head"><td colspan="5">附件</td></tr>
+    <{foreachq item=att from=$attachments}>
+    <tr class="<{cycle values='odd, even'}>">
+        <td><{$att.att_filename}></td>
+        <td><{$att.att_size}></td>
+        <td><{$att.update_time}></td>
+        <td><{$att.att_downloads}></td>
+        <td><a href="downloads.php?id=<{$att.att_id}>">下载</a> | <a href="action.resources.php?ac=delete_att&amp;res_id=<{$res_id}>&amp;att_id=<{$att.att_id}>">删除</a></td>
+    </tr>
+    <{/foreach}>
+    <tr>
+        <td colspan="5" class="head"><a href="downloads.php?ac=all&amp;id=<{$res_id}>">全部下载</a></td>
+    </tr>       
+</table>
+<{/if}>
+<br style="clear: both;"/>
+<div>
+    <form name="<{$form.name}>" id="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}>>
+        <table class="outer" width="100%">
+                <tr class="head">
+                    <th colspan="2"><{$form.title}></th>
+                </tr>
+                <{foreachq item=item from=$form.elements}>
+                <{if !$item.hidden}>
+                <tr>
+                <td class="even" width="10%"><{$item.caption}><{if $item.required}><em>*</em><{/if}></td>
+                <td class="odd"><{$item.body}></td>
+                </tr>
+                <{else}>
+                    <{$item.body}>
+                <{/if}>
+            <{/foreach}>
+        </table>
+    </form>
+</div>
+<{$form.javascript}>
+
+<script src="<{$xoops_url}>/modules/resources/include/jquery.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function(){
+	var fileName = $("input[name='annex']").attr("name");
+    var i = 0;
+	  $("#addMore").click(function(){
+        i = ++i;
+    	$(this).parent().before('<div><input type="file" name="'+fileName+i+'" id="'+fileName+i+'" /><input type="hidden" name="xoops_upload_file[]" id="xoops_upload_file[]" value="'+fileName+i+'" /> <a id="del'+i+'" href="javascript:void(0);" onclick="deleteUploadfeild('+i+');">X</a></div>');
+    });
+});
+function deleteUploadfeild(id){
+    var id = '#del'+id;
+    $(id).parent().remove();
+};
+</script>
+

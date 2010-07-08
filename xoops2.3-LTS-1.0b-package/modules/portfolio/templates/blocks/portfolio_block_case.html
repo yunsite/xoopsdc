@@ -1,0 +1,15 @@
+<ul>
+    <{foreach item=case from=$block.cases}>
+        <li>
+            <a href="<{$xoops_url}>/modules/portfolio/case.php?service_id=<{$case.service_id}>&amp;case_id=<{$case.case_id}>"><{$case.case_menu_title}></a>
+            <{if $block.is_summary}><{$case.case_summary}><{/if}>
+            <{if $block.is_desc}><{$case.case_description}><{/if}>
+            <{if $block.is_image}><img src="<{$xoops_url}>/uploads/portfolio/<{$case.case_image}>" /><{/if}>
+            <{if $block.is_gallery}>
+            <{foreach item=gallery from=$case.gallery}>
+                <img src="<{$xoops_url}>/uploads/portfolio/gallery/thumb_<{$gallery.image_file}>">&nbsp;&nbsp;&nbsp;&nbsp;
+            <{/foreach}>
+            <{/if}>
+        </li>    
+    <{/foreach}>
+</ul>
