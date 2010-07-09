@@ -1,5 +1,0 @@
-<ul>
-    <{foreach item=item from=$block.service}>
-    <li><a <{if $block.service_id eq $item.service_id}>class="current"<{/if}> href="<{$xoops_url}>/modules/portfolio/index.php?service_id=<{$item.service_id}>"><{$item.service_menu_name}></a></li>
-    <{/foreach}>
-</ul>
