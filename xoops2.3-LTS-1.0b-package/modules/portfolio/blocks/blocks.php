@@ -153,7 +153,7 @@ function portfolio_block_case_show($options){
                 }   
             }       
         }
-        xoops_result($cases[$k]['gallery']);
+ 
     }
     
     $block['cases'] = $cases;
