@@ -1,0 +1,21 @@
+<a href="admin.category.php?op=new" ><{$smarty.const._AM_LINKS_ADDCAT}></a>
+<form id="form" name="form" method="post" action="admin.category.php">
+    <table class="outer"> 
+        <th align="center"><{$smarty.const._AM_LINKS_SORT}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_CATNAME}></th>
+        <th align="center"><{$smarty.const._AM_LINKS_ACTIVE}></th>
+        <{foreach item=category from=$categories}>
+        <tr class="<{cycle values='odd, even'}>" align="center">
+            <td width="5%"><input name="cat_order[<{$category.cat_id}>]" type="text" id="<{$category.cat_id}>" value="<{$category.cat_order}>" size="1" maxlength="4" /></td>
+            <td width="75%"><{$category.cat_name}></td>
+            <td align="center" width="20%">
+                <a href="admin.category.php?cat_id=<{$category.cat_id}>"><{$smarty.const._AM_LINKS_EDIT}></a>&nbsp;&nbsp;
+              	<a href="action.category.php?ac=delete&amp;cat_id=<{$category.cat_id}>"><{$smarty.const._AM_LINKS_DELETE}></a>
+            </td>
+        </tr>
+        <{/foreach}>
+        <tr>
+            <td colspan="3" align="right"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+</form>

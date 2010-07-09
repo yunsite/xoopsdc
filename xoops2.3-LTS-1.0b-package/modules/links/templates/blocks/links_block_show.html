@@ -1,0 +1,30 @@
+<{* add style *}>
+<{$xoTheme->addStylesheet("modules/links/templates/style.css")}>
+
+<{* 1:logo horizontal show  
+    2:logo vertical show  
+    3:title horizontal show 
+    4:title vertical show  
+*}>
+<{if $block.display.display eq '1'}>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_image}>" alt="<{$link.link_title}>" width="100" ></a>
+    <{/foreach}>
+<{elseif $block.display.display eq '2'}>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><img src="<{$link.link_image}>" alt="<{$link.link_title}>" width="100"></a><br />
+    <{/foreach}>
+<{elseif $block.display.display eq '3'}>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><{$link.link_title}></a>
+    <{/foreach}>
+<{else}>
+    <{if $block.display.display_cat}><h2><{$block.display.cat_name}></h2><{/if}>
+    <{foreachq item=link from=$block.display.links}>
+        <a href='<{$xoops_url}>/modules/links/redirect.php?url=<{$link.link_url}>'><{$link.link_title}></a><br />
+    <{/foreach}>
+<{/if}>
+ 

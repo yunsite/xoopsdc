@@ -1,0 +1,62 @@
+<{* basic information of module about links *}>
+<fieldset><legend style="font-weight:bold; color:#990000;"><{$smarty.const._AM_LINKS_BASICTITLE}></legend>
+<table>
+    <tr>
+        <td><{$smarty.const._AM_LINKS_DIRNAME}></td>
+    </tr>
+    <tr>
+        <td><{$smarty.const._AM_LINKS_VERSION}></td>
+    </tr>
+    <tr>
+        <td><{$smarty.const._AM_LINKS_AUTHOR}></td>
+    </tr>
+    <tr> 
+        <td><{$smarty.const._AM_LINKS_OFFICIALURL}></td>
+    </tr>
+    <tr>
+        <td><{$smarty.const._AM_LINKS_APPLY}></td>
+    </tr>
+</table>
+</fieldset>
+
+<{*  module of links parameter *}>
+<{if $logo}>
+<fieldset><legend style="font-weight:bold; color:#990000;"><{$smarty.const._AM_LINKS_PARAMETER}></legend>
+<table>   
+    <tr>
+        <td><{$smarty.const._AM_LINKS_LIKLOGOPATH}><{$create.logo_dir}></td>
+    </tr>   
+</table>
+</fieldset>
+<{/if}>
+
+<{*  Statistic information *}>
+<fieldset><legend style="font-weight:bold; color:#990000;"><{$smarty.const._AM_LINKS_COUNTINFO}></legend>
+<table>
+    <tr>
+        <td><{$smarty.const._AM_LINKS_TOTALCAT}><span style="color:#FF0000;"><{$count.category}></span></td>
+    </tr>
+    <tr>
+        <td><{$smarty.const._AM_LINKS_TOTAL}><span style="color:#FF0000;"><{$count.links_Total}></span>&nbsp;&nbsp;&nbsp;&nbsp;<{$smarty.const._AM_LINKS_PUBLISH}><span style="color:#FF0000;"><{$count.links_Release}></span>&nbsp;&nbsp;&nbsp;&nbsp;<{$smarty.const._AM_LINKS_DRAFT}><span style="color:#FF0000;"><{$count.links_Draft}></span></td>
+    </tr>
+</table>
+</fieldset>
+
+<{*  changelog *}>
+<fieldset><legend style="font-weight:bold; color:#990000;"><{$smarty.const._AM_LINKS_LOGTITLE}></legend>
+<h2><{$smarty.const._AM_LINKS_LOGSUBTITLE}></h2>
+<h3><{$smarty.const._AM_LINKS_VERSIONONE}></h3>
+<ul>
+<li><{$smarty.const._AM_LINKS_FUNCONE}></li>
+<li><{$smarty.const._AM_LINKS_FUNCTWO}></li>
+<li><{$smarty.const._AM_LINKS_FUNCTHREE}></li>
+<li><{$smarty.const._AM_LINKS_FUNCFOUR}></li>
+<li><{$smarty.const._AM_LINKS_FUNCFIVE}></li>
+<li><{$smarty.const._AM_LINKS_FUNCSIX}></li>
+</ul>
+<h3><{$smarty.const._AM_LINKS_VERSIONONEPOINTTWO}></h3><em><{$smarty.const._AM_LINKS_VERSIONONEPOINTTWO_INFO}></em>
+<ul>
+<li><{$smarty.const._AM_LINKS_NEWAPPLYJOINFUNC}></li>
+<li><{$smarty.const._AM_LINKS_NEWCONTACT}></li>
+</ul> 
+</fieldset>
