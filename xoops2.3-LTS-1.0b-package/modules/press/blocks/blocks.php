@@ -4,10 +4,11 @@ if (!defined('XOOPS_ROOT_PATH')) {
 }
 function press_block_news_show($options) {
 	global $GLOBALS;
-	$criteria =  new Criteria("cat_id",$options[0]);
-	$criteria->setLimit($options[1]);
-	$criteria->setSort("topic_date");
-	$criteria->setOrder("DESC");
+	$criteria =  new CriteriaCompo();
+	if(!empty($options[0])) $criteria ->add(new Criteria("cat_id",$options[0]));	
+ 	$criteria->setLimit($options[1]);
+ 	$criteria->setSort("topic_date");
+ 	$criteria->setOrder("DESC");
 	$field = array("topic_id","subject","topic_date");
 	$topic_handler = xoops_getmodulehandler("topics","press");
 	$topics = $topic_handler->getAll($criteria,$field,false,true);
@@ -15,12 +16,13 @@ function press_block_news_show($options) {
 		$topics[$k]['topic_date'] = formatTimestamp($v['topic_date'],"m.d");
 	}
 	$block = $topics;
+
 	return $block;
 }
 function press_block_news_edit($options) {
 	global $GLOBALS;
 	
-	include_once XOOPS_ROOT_PATH."/class/xoopsformloader.php";
+    include_once XOOPS_ROOT_PATH."/modules/press/include/xoopsformloader.php";
 	$category_handler =& xoops_getmodulehandler("category","press");
 	$form = new XoopsBlockForm("","","");
 	$form_select = new XoopsFormSelect("catgory","options[0]",$options[0]);
