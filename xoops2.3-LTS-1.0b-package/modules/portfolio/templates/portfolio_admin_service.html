@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+
+<div class="action-span"><a href="admin.service.php?op=new">添加服务</a></div>
+<br style="clear: both;"/>
+
+<form id="form" name="form" method="post" action="admin.service.php">
+
+    <table class="outer" align="left"> 
+        <th align="center">排序</th>
+        <th align="center">服务名称</th>
+        <th align="center">当前状态</th>
+        <th align="center">更新时间</th>
+        <th align="center">服务模板</th>
+        <th align="center">操作</th>
+        <{foreach item=service from=$services}>
+        <tr class="<{cycle values='odd, even'}>" align="center">
+            <td><input name="service_weight[<{$service.service_id}>]" type="text" id="<{$service.service_id}>" value="<{$service.service_weight}>" size="1" maxlength="4" /></td>
+            <td width="40%"><{$service.service_menu_name}></td>
+            <td width="15%"><img src="<{$xoops_url}>/modules/portfolio/images/<{if $service.service_status}>yes<{else}>no<{/if}>.png"></td>
+            <td width="15%"><{$service.service_datetime}></td>   
+            <td width="15%"><{$service.service_tpl}></td>        
+            <td width="15%" align="center">
+                <a href="admin.service.php?op=edit&amp;service_id=<{$service.service_id}>">编辑</a> |
+              	<a href="action.service.php?ac=delete&amp;service_id=<{$service.service_id}>">移除</a>
+            </td>
+        </tr>
+        <{/foreach}>
+        <tr>
+            <td colspan="5"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>"></td>
+        </tr>       
+    </table>
+</form>
