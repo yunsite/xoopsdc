@@ -1,0 +1,31 @@
+<{$xoTheme->addStylesheet("modules/`$xoops_dirname`/templates/style.css")}>
+<div id="portfolio_index_crumb" class="breadcrumbs">
+    <{foreach item=itm from=$xoBreadcrumbs name=bcloop}>
+       
+        <{if $itm.link}>
+            <a href="<{$itm.link}>" title="<{$itm.title}>"><{$itm.title}></a>
+        <{else}>
+            <{$itm.title}>
+        <{/if}>
+        <{if !$smarty.foreach.bcloop.last}>
+            &raquo;
+        <{/if}>
+    <{/foreach}>
+</div>
+
+<ul id="portfolio_index_menu">
+    <{foreach item=item from=$service_menu}>
+    <li><a <{if $service.service_id eq $item.service_id}>class="current"<{/if}> href="index.php?service_id=<{$item.service_id}>"><{$item.service_menu_name}></a></li>
+    <{if $item.child}>
+        <{assign var="children" value=$item.child}>
+        <{include file="db:portfolio_menu.html"}>
+    <{/if}>
+    <{/foreach}>
+</ul>
+
+<div id="portfolio_index_wrap">
+    <h4 id="portfolio_index_content_title"><{$service.service_name}> : <a href="case.php?service_id=<{$service.service_id}>">相关案例</a></h4>
+    <div id="portfolio_index_content_text"><{$service.service_desc}></div>
+</div>
+<br style="clear:both;" />
+</div>
