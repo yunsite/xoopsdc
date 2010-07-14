@@ -22,5 +22,5 @@
 // _CHARSET : utf-8
 // Author: magic.shao
 
-define('_MA_ABOUT_DETAIL',"查看详情");
+ 
 ?>

@@ -22,9 +22,6 @@
 // _CHARSET : utf-8
 // Author: magic.shao
 
-define('_MI_ABOUT_BLOCKPAGE',"页面");
-define('_MI_ABOUT_TEXT_LENGTH',"文字长度");
-define('_MI_ABOUT_VIEW_MORELINKTEXT',"阅读更多链接文字");
-define('_MI_ABOUT_DOTITLEIMAGE',"是否显示题头图片");
+ 
 
 ?>
