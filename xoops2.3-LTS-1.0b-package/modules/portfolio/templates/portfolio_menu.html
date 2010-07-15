@@ -1,7 +1,0 @@
-<{foreach item=child key=key from=$children}>
-<li <{if !$child.show}>style="display:none;"<{/if}>><a <{if $child.page_id eq $child.page_id}>class="current"<{/if}> href="index.php?service_id=<{$child.service_id}>"><{$child.service_menu_title}></a></li>
-<{if $child.child}>
-    <{assign var="children" value=$child.child}>
-    <{include file="db:portfolio_menu.html"}>
-<{/if}>
-<{/foreach}>
