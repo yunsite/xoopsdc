@@ -1,0 +1,19 @@
+<ul>
+    <{foreach item=case from=$block.cases}>
+        <li>
+            <h4>标题:<a href="<{$xoops_url}>/modules/portfolio/case.php?service_id=<{$case.service_id}>&amp;case_id=<{$case.case_id}>"><{$case.case_menu_title}></a></h4>
+            <div style="margin-left:100px;">
+            <{if $block.is_summary  && $case.case_summary}><p>摘要：<{$case.case_summary}></p><{/if}>
+            <{if $block.is_desc  && $case.case_description}><p>内容描述：<{$case.case_description}></p><{/if}>
+            <{if $block.is_image && $case.case_image}><div>标题图片：<img src="<{$xoops_url}>/uploads/portfolio/<{$case.case_image}>" width="100" /></div><{/if}>
+            <{if $block.is_gallery  && $case.gallery}>
+            <div>案例相册：
+            <{foreach item=gallery from=$case.gallery}>
+               <img src="<{$xoops_url}>/uploads/portfolio/gallery/thumb_<{$gallery.image_file}>" width="100">
+            <{/foreach}>
+            </div>
+            <{/if}>
+            </div>
+        </li>    
+    <{/foreach}>
+</ul>

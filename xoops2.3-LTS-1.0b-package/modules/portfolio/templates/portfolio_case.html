@@ -1,0 +1,37 @@
+<{$xoTheme->addStylesheet("modules/`$xoops_dirname`/templates/style.css")}>
+<div id="portfolio_index_crumb" class="breadcrumbs">
+    <{foreach item=itm from=$xoBreadcrumbs name=bcloop}>
+       
+        <{if $itm.link}>
+            <a href="<{$itm.link}>" title="<{$itm.title}>"><{$itm.title}></a>
+        <{else}>
+            <{$itm.title}>
+        <{/if}>
+        <{if !$smarty.foreach.bcloop.last}>
+            &raquo;
+        <{/if}>
+    <{/foreach}>
+</div>
+
+<{if $cs}>
+<ul id="portfolio_index_menu">
+    <{foreach item=item from=$case_menu}>
+        <li><a <{if $case.case_id eq $item.case_id}>class="current"<{/if}> href="case.php?service_id=<{$case.service_id}>&amp;case_id=<{$item.case_id}>"><{$item.case_menu_title}></a></li>
+    <{/foreach}>
+</ul>
+
+<div id="portfolio_index_wrap">
+    <h4 id="portfolio_index_content_title"><{$case.case_title}></h4>
+    <h5>所属服务：<{foreach item=service key=key from=$case.case_services}><a href="index.php?service_id=<{$key}>"><{$service}></a><{/foreach}></h5>
+    <h5>标题图片</h5>
+    <img src="<{$xoops_url}>/uploads/portfolio/<{$case.case_image}>" width="100">
+    <h5>案例相册</h5>
+    <div><{foreach item=gallery key=key from=$case.case_gallery}><img src="<{$xoops_url}>/uploads/portfolio/gallery/thumb_<{$gallery.image_file}>" width="100"><{/foreach}></div>
+    <h5>案例说明</h5>
+    <div id="portfolio_index_content_text"><{$case.case_description}></div>
+</div>
+<br style="clear:both;" />
+</div>
+<{else}>
+<p>此服务没有相关的案例</p>
+<{/if}>
