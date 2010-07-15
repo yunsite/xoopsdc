@@ -82,7 +82,7 @@ switch ($ac) {
         if (isset($_REQUEST['ok']) && $_REQUEST['ok'] == 1) {
             if($service_handler->delete($service_obj)) {
                 if (file_exists($image)) { @unlink($image);}        
-                redirect_header('admin.service.php', 3, '保存成功');
+                redirect_header('admin.service.php', 3, '删除成功');
             }else{
                 echo $service_obj->getHtmlErrors();
             }

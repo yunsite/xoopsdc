@@ -192,7 +192,7 @@ switch ($ac) {
         if (isset($_REQUEST['ok']) && $_REQUEST['ok'] == 1) {
             if($case_handler->delete($case_obj)) {
                 if (file_exists($image)) { @unlink($image);}        
-                redirect_header('admin.case.php', 3, '保存成功');
+                redirect_header('admin.case.php', 3, '删除成功');
             }else{
                 echo $case_obj->getHtmlErrors();
             }

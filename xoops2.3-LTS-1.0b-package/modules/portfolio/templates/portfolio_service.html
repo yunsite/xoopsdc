@@ -24,7 +24,7 @@
 </ul>
 
 <div id="portfolio_index_wrap">
-    <h4 id="portfolio_index_content_title"><{$service.service_name}> : <a href="case.php?service_id=<{$service.service_id}>">相关案例</a></h4>
+    <h4 id="portfolio_index_content_title"><{$service.service_name}><{if $service.service_id}> : <a href="case.php?service_id=<{$service.service_id}>">相关案例</a> <{/if}></h4>
     <div id="portfolio_index_content_text"><{$service.service_desc}></div>
 </div>
 <br style="clear:both;" />
