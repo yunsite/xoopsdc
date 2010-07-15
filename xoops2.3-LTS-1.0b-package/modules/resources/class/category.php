@@ -50,8 +50,8 @@ class ResourcesCategory extends XoopsObject
         $form->addElement($cat_image);
 
         //服务介绍
-        $configs = array('editor'=>'fckeditor','width'=>'100%','height'=>'500px','value'=>$this->getVar('cat_desc')); 
-        $form->addElement(new XoopsFormEditor('分类描述', 'cat_desc',$configs));
+        $configs = array('editor'=>'fckeditor','width'=>'100%','height'=>'500px','value'=>$this->getVar('cat_description')); 
+        $form->addElement(new XoopsFormEditor('分类描述', 'cat_description',$configs));
        
         //状态
         $form->addElement(new XoopsFormRadioYN('是否显示', 'cat_status', $status));
