@@ -36,7 +36,7 @@
 
 <script src="<{$xoops_url}>/modules/support/include/jquery.js" type="text/javascript"></script>
 
-<{if $op eq 'reply' ||  $op eq 'add'  ||  $op eq 'reject'  ||  $op eq 'forword'}>
+<{if $op eq 'reply' ||  $op eq 'add'  ||  $op eq 'reject'}>
 <script>
 $(document).ready(function(){
 	var fileName = $("input[name='annex']").attr("name");
@@ -52,6 +52,20 @@ function deleteUploadfeild(id){
 };
 </script>
 <{elseif $op eq 'forword'}>
+<script>
+$(document).ready(function(){
+	var fileName = $("input[name='annex']").attr("name");
+    var i = 0;
+	  $("#addMore").click(function(){
+        i = ++i;
+    	$(this).parent().before('<div><input type="file" name="'+fileName+i+'" id="'+fileName+i+'" /><input type="hidden" name="xoops_upload_file[]" id="xoops_upload_file[]" value="'+fileName+i+'" /> <a id="del'+i+'" href="javascript:void(0);" onclick="deleteUploadfeild('+i+');">X</a></div>');
+    });
+});
+function deleteUploadfeild(id){
+    var id = '#del'+id;
+    $(id).parent().remove();
+};
+</script>
 <SCRIPT language=JavaScript>
 $(document).ready(function() {
     $("select[id=cat_id]").change( function() {
