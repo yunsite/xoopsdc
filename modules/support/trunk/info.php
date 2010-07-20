@@ -54,12 +54,14 @@ switch ($op) {
             if ($process['status'] == 'finish' || $process['status'] == 'lgnore' || $process['status'] == 'close') array_push($process['usesub'], 'read', 'reject', 'forword', 'finish', 'lgnore', 'close');
         } elseif ($user['level'] == 'support') {
             $process['usesub'] = array();
-            if ($process['status'] == 'create'  || $process['status'] == 'reject') array_push($process['usesub'], 'reply','forword','finish', 'lgnore', 'close');
+            if ($process['status'] == 'create') array_push($process['usesub'], 'reply','forword','finish', 'lgnore', 'close');
+            if ($process['status'] == 'reject') array_push($process['usesub'], 'read');
             if ($process['status'] == 'read' || $process['status'] == 'reply' || $process['status'] == 'forword') array_push($process['usesub'], 'read');
             if ($process['status'] == 'finish' || $process['status'] == 'lgnore' || $process['status'] == 'close') array_push($process['usesub'], 'read', 'reply', 'forword', 'finish', 'lgnore', 'close');
         } else {
             $process['usesub'] = array();
-            if ($process['status'] == 'create'  || $process['status'] == 'reject') array_push($process['usesub'], 'reply', 'forword','finish', 'close', 'lgnore');            
+            if ($process['status'] == 'create') array_push($process['usesub'], 'reply', 'forword','finish', 'close', 'lgnore');            
+            if ($process['status'] == 'reject') array_push($process['usesub'], 'read');             
             if ($process['status'] == 'read' || $process['status'] == 'reply' || $process['status'] == 'forword') array_push($process['usesub'], 'read');
             if ($process['status'] == 'finish' || $process['status'] == 'lgnore' || $process['status'] == 'close') array_push($process['usesub'], 'read', 'reply', 'forword', 'finish', 'lgnore', 'close');
         }

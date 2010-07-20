@@ -49,11 +49,7 @@ if( $op == 'read' || $op == 'reply' || $op == 'reject' || $op == 'forword' || $o
       $process_obj->setVar('support_id', $forword_uid);
     }
     //juan
-if($op == 'reject'){
-    $process_obj->setVar('status', 'create');
-}else{
-    $process_obj->setVar('status', $op);
-}    
+    $process_obj->setVar('status', $op);    
     // status
 
     
