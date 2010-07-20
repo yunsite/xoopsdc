@@ -13,8 +13,8 @@ define('_MA_SUPPORT_INFOACTON_WAITING',"客服人员正在解决您的问题，�
 define('_MA_SUPPORT_USERRESUBMIT',"用户认为客服的答复不是满意的答复，希望得到更多的解决方案...");
 define('_MA_SUPPORT_QUESTIONFORWARDOTHER',"问题转交給其他客服人员处理，请您耐心等候..."); 
 define('_MA_SUPPORT_QUESTIONFINISH',"问题已解决");
-define('_MA_SUPPORT_QUESTIONCLOSE',"问题已被管理员关闭，关闭原因管理员未加说明..."); 
-define('_MA_SUPPORT_QUESTIONIGNORE',"问题已被用户忽略，忽略原因用户未提供...");
+define('_MA_SUPPORT_QUESTIONCLOSE',"问题已被管理员关闭，关闭原因..."); 
+define('_MA_SUPPORT_QUESTIONIGNORE',"问题已被用户忽略，忽略原因...");
 define('_MA_SUPPORT_TIMEFORMATC',"y-m-d");
 define('_MA_SUPPORT_TIMEFORMATE',"y-m-d h:i:s");
 define('_MA_SUPPORT_TIMEFORMATS',"Y年m月d日");
