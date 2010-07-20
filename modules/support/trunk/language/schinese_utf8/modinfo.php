@@ -1,6 +1,6 @@
 <?php
-define('_MI_SUPPORT_NAME',"友情链接");
-define('_MI_SUPPORT_DESC',"关于XOOPS模块的友情链接");
+define('_MI_SUPPORT_NAME',"客服模块");
+define('_MI_SUPPORT_DESC',"客服模块的描述");
 
 define('_MI_SUPPORT_TIME',"网站时间格式选择");
 define('_MI_SUPPORT_PAGENAV',"内容显示条目数");
