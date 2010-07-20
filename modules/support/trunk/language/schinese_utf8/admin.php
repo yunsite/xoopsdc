@@ -5,7 +5,7 @@ define('_MA_SUPPORT_QUESTIONSUMBIT',"问题提交");
 define('_MA_SUPPORT_READ',"已认领");
 define('_MA_SUPPORT_DOING',"处理中");
 define('_MA_SUPPORT_QUESTIONREPLY',"问题已答复");
-define('_MA_SUPPORT_USERFEEDBACK',"用户反馈");
+define('_MA_SUPPORT_USERFEEDBACK',"问题补充");
 define('_MA_SUPPORT_QUESTIONRESUMBIT',"问题被再一次提交"); 
 define('_MA_SUPPORT_SUBMITINFO_UNSURE',"用户已提交了信息，请您尽快确认。");
 define('_MA_SUPPORT_INFOREAD_DOING',"客服人员已认领了您的消息，正在处理中..."); 
