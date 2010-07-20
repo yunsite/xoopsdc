@@ -32,7 +32,7 @@ switch ($op) {
         if($support_ids != null) {
             $criteria = new Criteria("uid","(".implode(", ",$support_ids). ")","in");
             $support_users = $member_handler->getUsers($criteria);
-            echo '<option value="0">_MA_SUPPORT_CHOICE</option>';
+            echo '<option value="0">'._MA_SUPPORT_CHOICE.'</option>';
             foreach($support_users as $user){
                 $name = $user->getVar('uname');
                 if($user->getVar('name')) $name = $user->getVar('name');
