@@ -1,8 +1,0 @@
-<{if $user.level eq 'manager'}>
-<div style="float:right">
-    <select name="manager" id="sort" onchange="location='index.php?manager='+this.options[this.selectedIndex].value+'&mod=<{$mod}>'">
-        <option value="index" <{if "index" eq $manager}>selected="selected"<{/if}>><{$smarty.const._MA_SUPPORT_QUESTIONMANAGEMENT}></option>
-        <option value="category" <{if "category" eq $manager}>selected="selected"<{/if}>><{$smarty.const._MA_SUPPORT_CATMANAGEMENT}></option>
-    </select> 
-</div>
-<{/if}>
