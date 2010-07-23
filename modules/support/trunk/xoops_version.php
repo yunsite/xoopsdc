@@ -1,7 +1,7 @@
 <?php
 
 $modversion['name'] = _MI_SUPPORT_NAME;
-$modversion['version'] = 1.00;
+$modversion['version'] = 1.01;
 $modversion['description'] = _MI_SUPPORT_DESC;
 $modversion['author'] = "Magic.Shao <magic.shao@gmail.com>";
 $modversion['credits'] = "xoops.org.cn";
