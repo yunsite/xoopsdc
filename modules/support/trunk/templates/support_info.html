@@ -40,7 +40,7 @@
                 <li><{$smarty.const._MA_SUPPORT_CURRENTSTATUS}>:<{$process.action}></li>
                 <li><{$smarty.const._MA_SUPPORT_PUBDATE}>:<{$process.create_time}></li>
                 <{if $process.last_reply_time}><li><{$smarty.const._MA_SUPPORT_ENDDATE}>:<{$process.last_reply_time}></li><{/if}>
-                <li><{$smarty.const._MA_SUPPORT_SUPPORT}>:<{if $process.support_id}><{if $process.support_name}><{$process.support_name}><{else}><{$process.support_uname}><{/if}><{else}>尚未认领<{/if}></li>
+                <li><{$smarty.const._MA_SUPPORT_SUPPORT}>:<{if $process.support_id}><{if $process.support_name}><{$process.support_name}><{else}><{$process.support_uname}><{/if}><{else}><{$smarty.const._MA_SUPPORT_CLAIM}><{/if}></li>
             </ul>
         </td>
         <td align="left">

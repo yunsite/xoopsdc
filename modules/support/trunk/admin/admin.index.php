@@ -4,7 +4,7 @@ xoops_cp_header();
 
 loadModuleAdminMenu(1, "");
 
-$xoopsTpl->assign('backend', '欢迎使用客服模块后台管理');
+$xoopsTpl->assign('backend', '歡迎使用客服模組後台管理');
 $template_main = "support_admin_index.html";
 
 include 'footer.php';

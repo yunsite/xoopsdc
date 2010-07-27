@@ -30,10 +30,10 @@ class SupportCategory extends XoopsObject
         $form = new XoopsThemeForm($title, 'form', $action, 'post', true);
         $form->setExtra("enctype=\"multipart/form-data\"");
         
-        //名称
+        //名稱
         $form->addElement(new XoopsFormText(_MA_SUPPORT_CATNAME, 'cat_name', 60, 255, $this->getVar('cat_name', $format)), true);
         
-        //题头图片
+        //題頭圖片
         $cat_image = new XoopsFormElementTray(_MA_SUPPORT_CATLOGO,'', 'image');
         if( $this->getVar('cat_image') ){
             $cat_image->addElement(new XoopsFormLabel('', '<img width="100" src="'.XOOPS_URL.'/uploads/support/'.$this->getVar('cat_image').'"><br><br>'));
@@ -49,14 +49,14 @@ class SupportCategory extends XoopsObject
         $cat_image->addElement(new XoopsFormLabel('', $display)); 	
         $form->addElement($cat_image);
 
-        //服务介绍
+        //服務介紹
         $configs = array('editor'=>'fckeditor','width'=>'100%','height'=>'500px','value'=>$this->getVar('cat_desc')); 
         $form->addElement(new XoopsFormEditor(_MA_SUPPORT_CATDESC, 'cat_desc',$configs));
        
-        //状态
+        //狀態
         $form->addElement(new XoopsFormRadioYN(_MA_SUPPORT_VISIBLE, 'cat_status', $status));
         
-        //管理员
+        //管理員
         $uids = $member_handler->getUsersByGroup($xoopsModuleConfig['support']);
         $criteria = new CriteriaCompo(new Criteria("uid","(".implode(", ",$uids). ")","in"));
         $members = $member_handler->getUserList($criteria);     

@@ -104,7 +104,7 @@ switch ($ac) {
                 $linkusers_handler->deleteAll($criteria, true);
             }
             
-            redirect_header('admin.category.php', 3, '保存成功'); 
+            redirect_header('admin.category.php', 3, '儲存成功'); 
         }
 
         loadModuleAdminMenu(2);
@@ -117,12 +117,12 @@ switch ($ac) {
     
     case 'delete':
         $cat_obj =& $category_handler->get($cat_id);
-        if(!is_object($cat_obj) || empty($cat_id)) redirect_header('admin.category.php', 3, '没有该分类!'); 
+        if(!is_object($cat_obj) || empty($cat_id)) redirect_header('admin.category.php', 3, '沒有該分類!'); 
         $image = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname() . '/' . $cat_obj->getVar("cat_image");
         if (isset($_REQUEST['ok']) && $_REQUEST['ok'] == 1) {
             if($category_handler->delete($cat_obj)) {
                 if (file_exists($image)) { @unlink($image);}        
-                redirect_header('admin.category.php', 3, '保存成功');
+                redirect_header('admin.category.php', 3, '儲存成功');
             }else{
                 echo $cat_obj->getHtmlErrors();
             }
@@ -132,7 +132,7 @@ switch ($ac) {
     break;
     
     default:
-        redirect_header('admin.category.php', 3, '没有该分类！'); 
+        redirect_header('admin.category.php', 3, '沒有該分類！'); 
     break;
 }
 include "footer.php";
