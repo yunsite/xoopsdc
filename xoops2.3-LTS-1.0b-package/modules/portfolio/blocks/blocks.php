@@ -75,7 +75,7 @@ function portfolio_block_case_show($options){
         while ($row = $xoopsDB->fetchArray($result)) {
             $rows[] = $row;
         }
-        xoops_result($rows);
+//        xoops_result($rows);
         if (count($rows) > 0){
             foreach ($rows as $row) {
                 $res =& $case_handler->create(false);
