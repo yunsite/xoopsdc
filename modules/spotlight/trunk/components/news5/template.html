@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/spotlight/components/news5/css.css" />
+<script  type="text/javascript" src="<{$xoops_url}>/modules/spotlight/components/news5/ifocus.js"></script>
+
+<div id="ifocus">
+    <div style="width: 657px; height: 274px; overflow: hidden; position: relative;">
+        <div id="ifocus_pic">
+            <div id="ifocus_piclist" style="left: 0; top: 0;">
+                <ul>
+                    <{foreachq item=item from=$block.news}>       
+                    <li><a href="<{$item.page_link}>"   target="_blank"><img src="<{$item.thumbs}>" /></a></li>
+                    <{/foreach}>
+			   </ul>                
+
+            </div>
+        </div>
+    
+    </div>
+    <div id="ifocus_btn">
+        <ul>
+			    <{assign var="n" value = 0}>
+                <{foreachq item=item from=$block.news}> 
+                <!-- <{$n++}>-->
+                <{if $n == 1}> <li  class="current"><img src="<{$item.thumbs}>" /><p><{$item.page_title}></p><a href="<{$item.page_link}>" target="_blank"><span>了解更多详情</span></a></li><{else}>
+                <li  class="normal"><img src="<{$item.thumbs}>" /><p><{$item.page_title}></p><a href="<{$item.page_link}>" target="_blank"><span>了解更多详情</span></a></li><{/if}>
+                <{/foreach}>        
+        </ul>
+    </div>
+</div>

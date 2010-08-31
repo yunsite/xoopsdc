@@ -1,0 +1,13 @@
+<script src="<{$xoops_url}>/modules/spotlight/components/flash5/swfobject_source.js" ></script>
+<div id="flashFCI"></div>
+
+<SCRIPT type=text/javascript>
+ 
+   var s1 = new SWFObject('<{xoAppUrl /modules/spotlight/components/flash5/focusFlash_fp.swf}>', "mymovie1", "300", "450", "5", "#ffffff");
+   s1.addParam("wmode", "transparent");
+   s1.addParam("AllowscriptAccess", "sameDomain");
+   s1.addVariable("bigSrc","<{$block.images}>");
+   s1.addVariable("width", "300");
+   s1.addVariable("height", "450");
+   s1.write("flashFCI");
+ </SCRIPT>
