@@ -21,7 +21,7 @@
 if (!defined('XOOPS_ROOT_PATH')){ exit(); }
 
 $modversion['name'] = _MI_SPOTLIGHT_FOCUS_MANDGEMENT;
-$modversion['version'] = 2.00;
+$modversion['version'] = 1.00;
 $modversion['description'] = _MI_SPOTLIGHT_FOCUS_MANDGEMENT;
 $modversion['author'] = 'Magic.Shao <magic.shao@gmail.com> <br /> Susheng Yang <ezskyyoung@gmail.com>';
 $modversion['credits'] = 'http://xoops.org.cn';
@@ -76,7 +76,7 @@ $modversion['blocks'][] = array(
 $select = array(
     'y-m-d' => '1',
     'y-m-d h:i:s' => '2',
-   _MI_SPOTLIGHT_Y_M_D => '3', 
+    _MI_SPOTLIGHT_Y_M_D => '3', 
     _MI_SPOTLIGHT_REAR_MONTH_DAY_HOURS_MINUTES_SECONDS => '4', 
     );
 
