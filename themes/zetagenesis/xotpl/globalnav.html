@@ -1,0 +1,52 @@
+
+<span class="default_preload1"></span>
+<span class="default_preload2"></span>
+<ul id="default_nav">
+<!-- 主页菜单项开始  -->
+<li class="default_top">
+<{if ! $ex_moduledir || $xoops_dirname == "pm" }>
+	<a href="<{$xoops_url}>" class="default_top_link default_selected" target="_self" alt="<{$smarty.const._MB_SYSTEM_HOME}>" title="<{$smarty.const._MB_SYSTEM_HOME}>">
+<{else}>
+	<a href="<{$xoops_url}>" class="default_top_link" target="_self" alt="<{$smarty.const._MB_SYSTEM_HOME}>" title="<{$smarty.const._MB_SYSTEM_HOME}>">
+<{/if}>
+	<span> <{$smarty.const._MB_SYSTEM_HOME}> </span>
+</a>
+</li>
+<!-- 主页菜单项结束 -->
+
+<!-- 模块菜单项开始  -->
+    <{foreach item=module from=$ex_mainmenu.modules }> 
+	<li class="default_top">
+        <{if $module.directory == $ex_moduledir }>
+		<a href="<{$xoops_url}>/modules/<{$module.directory}>/" class="default_top_link default_selected"  target="_self" alt="<{$module.name}>" title="<{$module.name}>" >
+		<{if $module.sublinks }>
+			<span class="default_down"> <{$module.name}> </span> </a>
+			<ul class="default_sub">
+			    <{foreach item=sublink from=$module.sublinks}> 
+				<li >
+				<a href="<{$sublink.url}>" target="_self" alt="<{$sublink.name}>" title="<{$sublink.name}>"><{$sublink.name}></a>
+				</li>
+			    <{/foreach}> 
+			</ul>
+		<{else}>
+			<span> <{$module.name}> </span> </a>
+		<{/if}>
+	<{else}>
+		<a href="<{$xoops_url}>/modules/<{$module.directory}>/" class="default_top_link"  target="_self" alt="<{$module.name}>" title="<{$module.name}>" >
+		<{if $module.sublinks }>
+			<span class="default_down"> <{$module.name}> </span> </a>
+			<ul class="default_sub">
+			    <{foreach item=sublink from=$module.sublinks}> 
+				<li >
+				<a href="<{$sublink.url}>" target="_self" alt="<{$sublink.name}>" title="<{$sublink.name}>"><{$sublink.name}></a>
+				</li>
+			    <{/foreach}> 
+			</ul>
+		<{else}>
+			<span> <{$module.name}> </span> </a>
+		<{/if}>
+	<{/if}>
+	</li>
+    <{/foreach}> 
+</ul>
+<!-- 模块菜单项结束 -->

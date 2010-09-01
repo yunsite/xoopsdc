@@ -1,0 +1,90 @@
+/* ------------ extra class settings ------------ */
+.clear {
+	clear: both;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+.fl_left {
+	float: left;
+	overflow:hidden;
+}
+.fl_right {
+	float: right;
+	overflow:hidden;
+}
+.photo_frame {
+	margin: 0 2px 3px;
+	padding: 2px;
+	border: 1px solid #CCC;
+	background:#FFF;
+	color:inherit;
+}
+.photo_r {
+	float: right;
+	margin: 0 0 3px 2px;
+	padding: 2px;
+	border: 1px solid #CCC;
+	background:#FFF;
+	color:inherit;
+}
+.photo_l {
+	float: left;
+	margin: 0 2px 3px 0;
+	padding: 2px;
+	border: 1px solid #CCC;
+	background:#FFF;
+	color:inherit;
+}
+.hidden {
+	visibility: hidden;
+}
+.vam {
+	vertical-align:middle;
+}
+.small {
+	font-size: 10px;
+	line-height: 110%;
+	padding: 5px 0;
+}
+.noteline {
+	line-height: 200%;
+	border-bottom: 1px dotted #CCC;
+	padding-bottom: 5px;
+}
+.notice {
+	color: #F60;
+	background: inherit;
+	font-weight: bold;
+	border-bottom: 1px dotted #F30;
+}
+.topicbox {
+	padding: 10px;
+	border: 1px solid #CCC;
+	background: #FDFDFD;
+	color: inherit;
+	margin: 10px 0;
+}
+.marker {
+	color: inherit;
+	background: #FDD;
+	padding: 2px;
+}
+div.box1 {
+	border:1px solid #EEE;
+	background:url(../images/box1_back.gif);
+	margin:3px 0;
+	padding:10px;
+}
+div.box2 {
+	border:1px solid #EEE;
+	background:url(../images/box2_back.gif);
+	margin:3px 0;
+	padding:10px;
+}

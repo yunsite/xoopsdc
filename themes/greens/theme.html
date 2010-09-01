@@ -1,0 +1,99 @@
+<{php}>
+$ua = $_SERVER['HTTP_USER_AGENT'];
+if ((ereg("Windows",$ua) > 0) && (ereg("MSIE",$ua) > 0)) {
+if (ereg("MSIE 6.",$ua) > 0) {
+echo '';
+}
+} else {
+echo '<?xml version="1.0" encoding="'._CHARSET.'"?>';
+echo "\n";
+}
+<{/php}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>"><head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><{$xoops_pagetitle}> - <{$xoops_sitename}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="screen,tv" href="<{$xoops_themecss}>" />
+<link rel="stylesheet" type="text/css" media="print" href="<{$xoops_imageurl}>css/print.css" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+
+<{$xoops_block_header}>
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+<body class="usual">
+<div class="page">
+  
+
+<{* header start *}>
+<div id="header">
+  
+	  <div id="logo"><a href="<{$xoops_url}>" title="<{$xoops_sitename}>"><img src="<{$xoops_imageurl}>images/logo.gif" alt="<{$xoops_sitename}>" /></a></div>
+
+    <{include file="$xoops_rootpath/themes/$xoops_theme/header_menu.html"}>
+
+		<div id="main_img"><span class="hidden"><{$xoops_pagetitle}></span></div>
+</div>
+<{* header end *}>
+
+  
+<{* content area start *}>
+  <div id="main_area">
+  
+	<div id="centercolumn">
+		<div id="cc_base">		  
+			<{include file="$xoops_rootpath/themes/$xoops_theme/blockcenter.html"}>
+		</div>
+	</div>
+  
+	<div id="side_area">
+	  
+			<div class="leftcolumn">
+				 <{foreach item=block from=$xoops_lblocks}>
+				   <div class="block_left">
+					  <div class="blockTitle"><{$block.title}></div>
+					  <div class="blockContent"><{$block.content}></div>
+				   </div>
+				 <{/foreach}>
+			  </div>
+			  
+		  <{if $xoops_showrblock == 1}>
+			    <div class="rightcolumn">
+				<{foreach item=block from=$xoops_rblocks}>
+				   <div class="block_right">
+				    <div class="blockTitle"><{$block.title}></div>
+				    <div class="blockContent"><{$block.content}></div>
+				   </div>
+				<{/foreach}>
+			   </div>
+		  <{/if}>
+		  
+	</div>
+  
+</div>
+<{* content area end *}>
+  
+
+</div>
+<div id="footer"><{$xoops_footer}> theme design by <a href="http://2bcool.net" target="_blank">BCOOL</a></div>
+  
+
+  
+<{* page end *}>
+</body>
+</html>

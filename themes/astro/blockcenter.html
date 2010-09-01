@@ -1,0 +1,90 @@
+<{* Special Thanks kihon2 logic by GIJOE PEAK Corp.(http://www.peak.ne.jp/) *}>
+
+<{if $xoops_showcblock == 1}>
+
+<{php}>
+$prev_htmls = array(
+	'bdbd' => '' ,
+	'bdcc' => '<div class="centerCcolumn">' ,
+	'bdcl' => '<div class="centerLcolumn">' ,
+	'bdcr' => '<div class="centerLcolumn"></div><div class="centerRcolumn">' ,
+	'ccbd' => '</div>' ,
+	'cccc' => '' ,
+	'cccl' => '</div><div class="centerLcolumn">' ,
+	'cccr' => '</div><div class="centerLcolumn"></div><div class="centerRcolumn">' ,
+	'clbd' => '</div><div class="centerRcolumn"></div>' ,
+	'clcc' => '</div><div class="centerRcolumn"></div><div class="centerCcolumn">' ,
+	'clcl' => '' ,
+	'clcr' => '</div><div class="centerRcolumn">' ,
+	'crbd' => '</div>' ,
+	'crcc' => '</div><div class="centerCcolumn">' ,
+	'crcl' => '</div><div class="centerLcolumn">' ,
+	'crcr' => '' ,
+) ;
+
+$i = 0 ;
+$xoops_cblocks = array() ;
+if( is_array( @$this->_tpl_vars['xoops_ccblocks'] ) ) foreach( $this->_tpl_vars['xoops_ccblocks'] as $i => $block ) {
+	$weight = $block['weight'] * 65536 + $i ;
+	$block['align'] = 'cc' ;
+	$xoops_cblocks[ $weight ] =  $block ;
+}
+if( is_array( @$this->_tpl_vars['xoops_clblocks'] ) ) foreach( $this->_tpl_vars['xoops_clblocks'] as $i => $block ) {
+	$weight = $block['weight'] * 65536 + $i + 16384 ;
+	$block['align'] = 'cl' ;
+	$xoops_cblocks[ $weight ] =  $block ;
+}
+if( is_array( @$this->_tpl_vars['xoops_crblocks'] ) ) foreach( $this->_tpl_vars['xoops_crblocks'] as $i => $block ) {
+	$weight = $block['weight'] * 65536 + $i + 32768 ;
+	$block['align'] = 'cr' ;
+	$xoops_cblocks[ $weight ] =  $block ;
+}
+// body's weight = 100
+$xoops_cblocks[ 100 * 65536 + 49152 ] = array( 'align' => 'bd' ) ;
+ksort( $xoops_cblocks ) ;
+array_push( $xoops_cblocks , array( 'align' => 'bd' ) ) ;
+
+$prev_align = 'bd' ;
+foreach( $xoops_cblocks as $key => $block ) {
+	$xoops_cblocks[$key]['prev_html'] = $prev_htmls[ $prev_align . $block['align'] ] ;
+	$prev_align = $block['align'] ;
+}
+
+/* foreach( $xoops_cblocks as $key => $block ) {
+	echo htmlspecialchars("$key:{$block['align']}:{$block['prev_html']}")."<br />" ;
+}
+exit ; */
+
+$last = array_pop( $xoops_cblocks ) ;
+$this->_tpl_vars['xoops_cblocks'] = $xoops_cblocks ;
+$this->_tpl_vars['xoops_cblocks_terminator'] = $last['prev_html'] ;
+<{/php}>
+
+<{foreach item=block from=$xoops_cblocks}>
+<{$block.prev_html}>
+
+	<{if $block.align == "bd"}>
+
+	<div id="content">
+	<{$xoops_contents}>
+	</div>
+	<{else}>
+
+	<div<{* id="cb<{$block.weight}>" *}>>
+	<{if ! $block.title|strstr:"none"}><div class="blockTitle"><{$block.title}></div><{/if}>
+	<div class="blockContent"><{$block.content}></div>
+	</div>
+
+	<{/if}>
+
+<{/foreach}>
+<{$xoops_cblocks_terminator}>
+
+<{else}>
+	<div id="content">
+	<{$xoops_contents}>
+	</div>
+<{/if}>
+
+<div id="page_top"><a href="#header"><span class="hidden">Go Page Top</span></a></div>
+<{if $xoops_banner != '&nbsp;' && $xoops_banner != ''}><div id="xoops_banner"><{$xoops_banner}></div><{/if}>
