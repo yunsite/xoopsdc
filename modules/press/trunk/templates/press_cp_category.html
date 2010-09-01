@@ -1,0 +1,33 @@
+<table class="outer">
+	<tr class="head">
+		<th width=50%><{$smarty.const._AM_PRESS_CATEGORIESLIST}></th>
+		<th><{$smarty.const._ADD}>/<{$smarty.const._EDIT}><{$smarty.const._AM_PRESS_CATEGORIES}></th>
+	</tr>
+    <tr class="even">
+        <td>
+            <table class="outer">
+            	<tr class="head">
+            		<th width=80%><{$smarty.const._AM_PRESS_CATEGORIES}></th>
+            		<th>操作</th>
+            	</tr>
+            	<{foreachq item=item from=$cat_list}>
+            	<tr class="<{cycle values='odd, even'}>">
+            		<td><a href="index.php?cat_id=<{$item.cat_id}>"><{$item.cat_name}></a></td>
+            		<td align=center><a href="category.php?cat_id=<{$item.cat_id}>"><{$smarty.const._EDIT}></a> | <a href="category.php?op=delete&amp;cat_id=<{$item.cat_id}>"><{$smarty.const._DELETE}></a></td>
+            	</tr>
+            	<{/foreach}>
+            </table>
+        </td>
+        
+        <td valign=top >
+            <div class="odd">
+            <form name="<{$form.name}>" id="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}> >
+            	<{foreachq item=item from=$form.elements}>
+            	<{$item.caption}>
+                <{$item.body}>
+            	<{/foreach}>
+            </form>
+            </div>
+        </td>
+	</tr>
+</table>

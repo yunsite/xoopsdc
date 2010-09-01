@@ -1,0 +1,5 @@
+<ul>
+    <{foreachq item=item from=$block}>
+    <li><a href="<{xoAppUrl /}>modules/press/view.php?id=<{$item.topic_id}>"><{$item.subject}></a> (<{$item.topic_date}>)</li>
+    <{/foreach}>
+</ul>
