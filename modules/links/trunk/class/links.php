@@ -26,18 +26,18 @@ class LinksLinks extends XoopsObject
 {
     function __construct() 
     {
-        $this->initVar('link_id', XOBJ_DTYPE_INT, null, true);
-        $this->initVar('cat_id', XOBJ_DTYPE_INT);
+        $this->initVar('link_id', XOBJ_DTYPE_INT, null, false);
+        $this->initVar('cat_id', XOBJ_DTYPE_INT,0);
         $this->initVar('link_title', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('link_url', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('link_desc', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('link_order', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('link_status', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('link_image', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('link_dir', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('published', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('datetime', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('link_contact', XOBJ_DTYPE_TXTBOX);
+        $this->initVar('link_url', XOBJ_DTYPE_TXTBOX, "");
+        $this->initVar('link_desc', XOBJ_DTYPE_TXTBOX, "");
+        $this->initVar('link_order', XOBJ_DTYPE_INT,0);
+        $this->initVar('link_status', XOBJ_DTYPE_INT,0);
+        $this->initVar('link_image', XOBJ_DTYPE_TXTBOX, "");
+        $this->initVar('link_dir', XOBJ_DTYPE_TXTBOX, "");
+        $this->initVar('published', XOBJ_DTYPE_INT);
+        $this->initVar('datetime', XOBJ_DTYPE_INT);
+        $this->initVar('link_contact', XOBJ_DTYPE_TXTBOX, "");
     }
 
     function linksForm($action = false){
@@ -61,10 +61,10 @@ class LinksLinks extends XoopsObject
           $form->addElement($categories, true);
           $form->addElement(new XoopsFormText(_AM_LINKS_TITLE, 'link_title', 40, 50, $this->getVar('link_title')), true);
           if (!$this->isNew()) {
-              $form->addElement(new XoopsFormText(_AM_LINKS_LIKADD, 'link_url', 50, 50, $this->getVar('link_url'), true));            
+              $form->addElement(new XoopsFormText(_AM_LINKS_LIKADD, 'link_url', 80, 5000, $this->getVar('link_url'), true));            
               $form->addElement(new XoopsFormHidden('datetime', time()));
           } else {
-          	 $form->addElement(new XoopsFormText(_AM_LINKS_LIKADD, 'link_url', 50, 255, 'http://'), true);
+          	 $form->addElement(new XoopsFormText(_AM_LINKS_LIKADD, 'link_url', 80, 5000, 'http://'), true);
           	 $form->addElement(new XoopsFormHidden('published', time()));
           	 $form->addElement(new XoopsFormHidden('datetime', time()));
           }

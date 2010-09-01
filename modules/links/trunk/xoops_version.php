@@ -96,7 +96,7 @@ $modversion['config'][$i]['title'] = '_MI_LINKS_APPLICATION';
 $modversion['config'][$i]['description'] = '_MI_LINKS_APPLICATION_DESC';
 $modversion['config'][$i]['formtype'] = 'yesno';
 $modversion['config'][$i]['valuetype'] = 'int';
-$modversion['config'][$i]['default'] = 1;
+$modversion['config'][$i]['default'] = 0;
 $modversion['config'][$i]['category'] = 'module';
 
 //Blocks

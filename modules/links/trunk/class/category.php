@@ -28,12 +28,12 @@ class LinksCategory extends XoopsObject
 {
     function __construct() 
     {
-        $this->initVar('cat_id', XOBJ_DTYPE_INT, null, true);
-        $this->initVar('cat_name', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('cat_desc', XOBJ_DTYPE_TXTBOX);
-        $this->initVar('cat_order', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('cat_status', XOBJ_DTYPE_INT, null, false);
-        $this->initVar('cat_image', XOBJ_DTYPE_TXTBOX);
+        $this->initVar('cat_id', XOBJ_DTYPE_INT, null, false);
+        $this->initVar('cat_name', XOBJ_DTYPE_TXTBOX, "");
+        $this->initVar('cat_desc', XOBJ_DTYPE_TXTBOX, "");
+        $this->initVar('cat_order', XOBJ_DTYPE_INT,0);
+        $this->initVar('cat_status', XOBJ_DTYPE_INT,0);
+        $this->initVar('cat_image', XOBJ_DTYPE_TXTBOX, "");
     }
     
     function catForm($action = false)
