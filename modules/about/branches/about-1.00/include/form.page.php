@@ -61,6 +61,9 @@ $image_tray->addElement($image_uploader);
 $page_image = $page_obj->getVar("page_image");
 if (!empty($page_image) && file_exists(XOOPS_ROOT_PATH . "/uploads/" . $xoopsModule->dirname() . "/" . $page_image)) {
 	$image_tray->addElement(new XoopsFormLabel("", "<div style=\"padding: 8px;\"><img src=\"" . XOOPS_URL . "/uploads/" . $xoopsModule->dirname() . "/" . $page_image . "\" /></div>"));
+    $delete_check = new XoopsFormCheckBox('','delete_image');
+    $delete_check->addOption(1,_DELETE);
+	$image_tray->addElement($delete_check);
 }
 $form->addElement($image_tray);
 $form->addElement(new XoopsFormRadioYN(_AM_ABOUT_PAGE_LINK_BLANK, 'page_blank', $page_blank));

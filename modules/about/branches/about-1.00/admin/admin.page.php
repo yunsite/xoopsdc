@@ -127,11 +127,13 @@ case "save":
     $page_obj->setVar('page_author',$xoopsUser->getVar('uid'));
     $page_obj->setVar('page_pushtime',time());
     
+    
+    include_once dirname(dirname(__FILE__)) . '/include/functions.php';
+	if(Aboutmkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
+    
     // upload image
     if (!empty($_FILES['userfile']['name'])) {
 		include_once XOOPS_ROOT_PATH.'/class/uploader.php';
-		include_once dirname(dirname(__FILE__)) . '/include/functions.php';
-		if(Aboutmkdirs(XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname())) $upload_path = XOOPS_UPLOAD_PATH . '/' . $xoopsModule->dirname();
 		$allowed_mimetypes = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png', 'image/x-png');
 	    $maxfilesize = 500000;
 	    $maxfilewidth = 1200;
@@ -149,7 +151,13 @@ case "save":
 	        }     
 	    }
     }
-  
+    
+    // delete iamge
+    if (isset($_POST['delete_image'])&&empty($_FILES['userfile']['name'])){
+		@unlink($upload_path . '/' . $page_obj->getVar("page_image"));
+		$page_obj->setVar('page_image', '');
+    }
+
 	// insert object  
     if ($page_handler->insert($page_obj)) {
         redirect_header('admin.page.php', 3, sprintf(_AM_ABOUT_SAVEDSUCCESS, _AM_ABOUT_PAGE_INSERT)); 
