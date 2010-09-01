@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+
+<div class="action-span"><a href="admin.resources.php?op=new">添加资源</a></div>
+
+<form id="form" name="form" method="post" action="admin.resources.php">
+    <table class="outer" align="left"> 
+        <th align="center">排序</th>
+        <th align="center">资源名称</th>        
+        <th align="center">分类名称</th>
+        <th align="center">更新时间</th>
+        <th align="center">状态</th>
+        <th align="center">资源个数</th>
+        <th align="center">操作</th>
+        <{foreach item=res from=$resources}>
+        <tr class="<{cycle values='odd, even'}>" align="center">
+            <td><input name="res_weight[<{$res.res_id}>]" type="text" id="<{$res.res_id}>" value="<{$res.res_weight}>" size="1" maxlength="4" /></td>
+            <td><{$res.res_subject}></td>            
+            <td><{$res.cat_name}></td>
+            <td><{$res.update_time}></td>
+            <td><img src="<{$xoops_url}>/modules/resources/images/<{if $res.res_status}>yes<{else}>no<{/if}>.png"></td>  
+            <td><{$res.res_attachment}></td>
+            <td align="center">
+                <a href="admin.resources.php?op=edit&amp;res_id=<{$res.res_id}>">编辑</a> |
+              	<a href="action.resources.php?ac=delete&amp;res_id=<{$res.res_id}>">移除</a>
+            </td>
+        </tr>
+        <{/foreach}>
+        <tr>
+            <td colspan="4"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>"></td>
+        </tr>       
+    </table>
+</form>
+<br style="clear: both;"/>
