@@ -17,8 +17,13 @@ define("FRAMEWORKS_ART_FUNCTIONS_ADMIN", true);
 defined("FRAMEWORKS_ART_FUNCTIONS_INI") || include_once dirname(__FILE__) . "/functions.ini.php";
 
 function loadModuleAdminMenu ($currentoption = -1, $breadcrumb = "")
-{
+{   
+    global $xoopsConfig;
     if (!$adminmenu = $GLOBALS["xoopsModule"]->getAdminMenu()) {
+        return false;
+    }
+    
+    if ($xoopsConfig['cpanel'] == 'nova'){
         return false;
     }
 
@@ -69,7 +74,7 @@ function loadModuleAdminMenu ($currentoption = -1, $breadcrumb = "")
     $adminmenu_text .= '
      </ul>
     </div>
-    <br />';
+    <br style="clear:both;" />';
 
     echo $adminmenu_text;
 }
