@@ -23,11 +23,10 @@ if (!defined('XOOPS_ROOT_PATH')) { exit(); }
 function flash3ComponentsShow($options)
 {
 global $xoopsModuleConfig;
-    include_once XOOPS_ROOT_PATH."/modules/spotlight/components/flash3/config.php";
-    
+
+    include_once dirname(__FILE__) . "/config.php";
     $sp_handler =& xoops_getmodulehandler('spotlight', 'spotlight');
     $page_handler =& xoops_getmodulehandler('page', 'spotlight');
- 
     
     // spotlight object
     $sp_obj = $sp_handler->get($options[0]);

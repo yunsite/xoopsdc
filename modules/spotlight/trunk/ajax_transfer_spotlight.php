@@ -67,7 +67,7 @@ case 'delete':
     $page_handler->DeletePage($page_id);
     $url = XOOPS_URL . '/modules/' . $spotlight_data['module'] . '/' . $spotlight_data['file'] . '.php?id=' . $spotlight_data['id'];
     redirect_header($url, 3, _MA_SPOTLIGHT_DELETESUCCESS);
-break;
+    break;
 
 case 'order':
     //save order
@@ -78,7 +78,7 @@ case 'order':
         $url = XOOPS_URL . '/modules/' . $spotlight_data['module'] . '/' . $spotlight_data['file'] . '.php?id=' . $spotlight_data['id'];
         redirect_header($url, 3, _MA_SPOTLIGHT_UPDATE_SUCCESSFUL);
     } 
-break;
+    break;
 
 case 'save':
     //save page
@@ -144,7 +144,7 @@ case 'save':
     
     if(empty($count) && !empty($mid) && !empty($id)) $page_handler->InsertPage($page);       
     unset($spotlight_data);
-break;
+    break;
 
 case 'add':
     // new page
@@ -189,7 +189,7 @@ case 'add':
 
 	$form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
     $form->assign($xoopsTpl);
-break;
+    break;
 }
 
 // show page
