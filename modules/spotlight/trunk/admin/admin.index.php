@@ -23,27 +23,18 @@ include('header.php');
 xoops_cp_header();
 loadModuleAdminMenu(0);
 
-$op = isset($_REQUEST['op']) ? $_REQUEST['op']  : 'display';
-
 $sp_handler =& xoops_getmodulehandler('spotlight', 'spotlight');
 $page_handler =& xoops_getmodulehandler('page', 'spotlight');
 
-switch ($op) {
-default:
-case 'display':
-    include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php"; 
-    
-    $count['spotligt'] = $sp_handler->getCount();
-    $count['page'] = $page_handler->getCount();
-    $count['components'] = count(XoopsLists::getDirListAsArray(dirname(dirname(__FILE__)) . '/components'));
-    
-    $xoopsTpl->assign('count', $count);
-    
-    $xoopsTpl->display("db:spotlight_admin_index.html");
+include_once XOOPS_ROOT_PATH . "/class/xoopsformloader.php"; 
 
-break;
-}
+$count['spotligt'] = $sp_handler->getCount();
+$count['page'] = $page_handler->getCount();
+$count['components'] = count(XoopsLists::getDirListAsArray(dirname(dirname(__FILE__)) . '/components'));
 
+$xoopsTpl->assign('count', $count);
+
+$xoopsTpl->display("db:spotlight_admin_index.html");
 
 xoops_cp_footer();
 ?>
