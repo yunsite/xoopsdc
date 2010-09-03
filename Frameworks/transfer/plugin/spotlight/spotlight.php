@@ -42,19 +42,19 @@ class ModuleTransferHandler extends TransferHandler
         return parent::do_transfer($item, $data);
     }
     
-    function InsertNews($items)
+    function insertItem($items)
     {
         $page_handler =& xoops_getmodulehandler('page', 'spotlight');
         
-        $sp_id =  $page_handler->InsertNews($page);
+        $sp_id =  $page_handler->insertPage($page);
         
         return $sp_id;
     }
     
-    function DeleteNews($page_id)
+    function deleteItem($page_id)
     {
         $page_handler =& xoops_getmodulehandler('page', 'spotlight');
-        $page_handler->DeleteNews($page_id);
+        $page_handler->deletePage($page_id);
     }
 }
 ?>
