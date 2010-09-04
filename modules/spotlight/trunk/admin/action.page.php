@@ -95,7 +95,7 @@ case 'delete':
     $page_obj =& $page_handler->get($page_id);
     if (isset($_REQUEST['ok']) && $_REQUEST['ok'] == 1) {
         if (!$GLOBALS['xoopsSecurity']->check()) redirect_header('admin.page.php?sp_id='.$sp_id, 3, implode(',', $GLOBALS['xoopsSecurity']->getErrors()));
-        if($page_handler->DeletePage($page_id)) {
+        if($page_handler->delete($page_obj)) {
             redirect_header('admin.page.php?sp_id='.$sp_id, 3, _AM_SPOTLIGHT_DELETED_SUCCESSFULLY);
         }else{
             echo _AM_SPOTLIGHT_ERONG_DELETE;

@@ -24,7 +24,6 @@ if (!defined('XOOPS_ROOT_PATH')) {
 
 include_once XOOPS_ROOT_PATH."/class/xoopsformloader.php";
 
-
 class XoopsBlockForm extends XoopsForm
 {
 

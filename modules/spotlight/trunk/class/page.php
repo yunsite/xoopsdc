@@ -82,8 +82,9 @@ class SpotlightPage extends XoopsObject
   		$page_image->addElement(new XoopsFormLabel('',_AM_SPOTLIGHT_ADD_PAGE_ALLOW_UPLOAD_TYPE));
   		$page_image->addElement(new XoopsFormLabel('', $display));  
   		$form->addElement($page_image);
-  		$form->addElement(new XoopsFormDateTime(_AM_SPOTLIGHT_MANAGEMENT_RELEASE_TIME,"published",15,$this->getVar('published', $format)));
+  		$form->addElement(new XoopsFormHidden('published', time()));
   		$form->addElement(new XoopsFormHidden('datetime', time()));
+  		$form->addElement(new XoopsFormHidden('id', $this->getVar('id')));
   		$form->addElement(new XoopsFormHidden('page_id', $this->getVar('page_id')));
   		$form->addElement(new XoopsFormHidden('ac', 'insert'));
   		$form->addElement(new XoopsFormButton('', 'submit', _SUBMIT, 'submit'));
@@ -99,43 +100,6 @@ class SpotlightPageHandler extends XoopsPersistableObjectHandler
         parent::__construct($db, 'sp_page', "SpotlightPage", "page_id", "page_title");
     }
     
-    function InsertPage($page)
-    {
-        $page_handler =& xoops_getmodulehandler('page', 'spotlight');
-        
-        if (isset($page['page_id'])) {
-            $page_obj =& $page_handler->get($page['page_id']);
-        }else {
-            $page_obj =& $page_handler->create();            
-        }
-        
-        foreach(array_keys($page_obj->vars) as $key) {
-            if(isset($page[$key])) {
-                $page_obj->setVar($key, $page[$key]);
-            }
-        }
-        
-        $page_id =  $page_handler->insert($page_obj);
-        
-        return $page_id;
-    }
-    
-    function DeletePage($page_id)
-    {
-        global $xoopsModuleConfig;
-        $page_handler =& xoops_getmodulehandler('page', 'spotlight');
-        
-        $page_obj =& $page_handler->get($page_id);
-        if(!is_object($page_obj)) return false;
-        if($page_obj->getVar('page_image')){
-            unlink(XOOPS_ROOT_PATH . $xoopsModuleConfig['spotlight_images'].$page_obj->getVar('page_image'));
-            unlink(XOOPS_ROOT_PATH . $xoopsModuleConfig['spotlight_images'].'image_'.$page_obj->getVar('page_image'));
-            unlink(XOOPS_ROOT_PATH . $xoopsModuleConfig['spotlight_images'].'thumb_'.$page_obj->getVar('page_image'));
-        }
-        
-        if($page_handler->delete($page_obj , true)) return true;        
-        return false;
-    }
 }
 
 ?>
