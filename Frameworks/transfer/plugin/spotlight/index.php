@@ -1,15 +1,23 @@
 <?php
-/**
- * Transfer handler for XOOPS
+ /**
+ * Spotlight
  *
- * This is intended to handle content spotlight between modules 
- * 
- * @author          Magic.Shao <magic.shao@gmail.com>
- * @since           2.00
- * @version         $Id$
- * @package         Frameworks
- * @subpackage      transfer
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code 
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * @copyright      The BEIJING XOOPS Co.Ltd. http://www.xoops.com.cn
+ * @license        http://www.fsf.org/copyleft/gpl.html GNU public license
+ * @package        spotlight
+ * @since          1.0.0
+ * @author         Mengjue Shao <magic.shao@gmail.com>
+ * @author         Susheng Yang <ezskyyoung@gmail.com>
+ * @version        $Id: index.php 1 2010-9-4 ezsky$
  */
+
 class transfer_spotlight extends Transfer
 {
     function transfer_spotlight()
@@ -21,22 +29,22 @@ class transfer_spotlight extends Transfer
     {
         eval(parent::do_transfer());
     
-        global $spotlight_data;
+        include XOOPS_ROOT_PATH . "/header.php";
         
-        if(!is_array($data) || empty($data)) {
-            trigger_error('"$date" does not exist ', E_USER_WARNING);
-            return false;
-        }
+        xoops_loadLanguage('admin','spotlight');
+        $page_handler =& xoops_getmodulehandler('page', 'spotlight');
+        $page_obj =& $page_handler->create();
+        $var_arr = array('page_title'=>$data["title"],
+                         'page_desc'=>$data["summary"],
+                         'page_link'=>$data["url"], 
+                         'id'=>$data["id"]
+                        );
+                  
+        $page_obj->assignVars($var_arr);
+        $form = $page_obj->getForm($this->config["url"]);
+        $form->display();
         
-        // The key for table "spotlight_page" fileds
-        foreach ($data as $k=>$v) {
-            if(isset($data[$k])) {
-                $spotlight_data[$k] = $v;
-            }
-        }
-
-        include_once XOOPS_ROOT_PATH . "/modules/" . $GLOBALS["xoopsModule"]->getVar("dirname") . "/thansfer_spotlight.php";
-
+        include XOOPS_ROOT_PATH . "/footer.php";
         exit();
     }
 }
