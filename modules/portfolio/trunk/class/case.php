@@ -23,11 +23,6 @@ class PortfolioCase extends XoopsObject
         $this->initVar('doxcode', XOBJ_DTYPE_INT, 0);
         $this->initVar('doimage', XOBJ_DTYPE_INT, 0);
         $this->initVar('dobr', XOBJ_DTYPE_INT, 0);
-        $this->initVar('dohtml', XOBJ_DTYPE_INT, 0);
-        $this->initVar('doxcode', XOBJ_DTYPE_INT, 0);
-        $this->initVar('dosmiley', XOBJ_DTYPE_INT, 0);
-        $this->initVar('doimage', XOBJ_DTYPE_INT, 0);
-        $this->initVar('dobr', XOBJ_DTYPE_INT, 0);
     }
     
     function getForm($action = false)
