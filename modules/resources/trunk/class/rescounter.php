@@ -16,7 +16,7 @@ class ResourcesRescounter extends XoopsObject
 
     }
     
-    function CatalogItemcounter()
+    function ResourcesRescounter()
     {
         $this->__construct();
     }
