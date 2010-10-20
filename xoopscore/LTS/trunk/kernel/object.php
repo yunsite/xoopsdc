@@ -596,7 +596,7 @@ class XoopsObject
         }
         foreach ($modules_active as $dirname) {
             if (!@include_once XOOPS_ROOT_PATH . "/modules/{$dirname}/filter/{$class}.{$method}.php") continue;
-            if (function_exists("{$class}_{$method}")) {
+            if (function_exists("{$dirname}_{$class}_{$method}")) {
                 call_user_func_array("{$dirname}_{$class}_{$method}", array(&$this));
             }
         }
