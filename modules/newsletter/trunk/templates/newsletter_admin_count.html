@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+<h1>電子報訂閱統計</h1>
+<form id="form" name="form" method="post" action="admin.count.php">
+    <div>
+        時間段篩選統計：
+        從&nbsp;<{$search.begin}>&nbsp;
+        到&nbsp;<{$search.finish}>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type='hidden' name='op' value='search' />    
+        <input type="submit" name="button" id="button" value="送出">
+    </div>
+</form>
+
+<div align="right">
+    <select name="unit" id="unit" onchange="location='admin.count.php?sort='+this.options[this.selectedIndex].value">
+        <{foreach item=item key=key from=$sort_list}>
+            <option value="<{$key}>" <{if $key eq $sort}>selected="selected"<{/if}>><{$item}></option>
+        <{/foreach}>
+    </select>
+</div>
+
+<{foreach item=item from=$result}>
+    <h2><{$item.start_time}> 到 <{$item.end_time}></h2>
+    <div>
+        <span>訂閱人數(<{$item.subscribe}>)</span>&nbsp;&nbsp;
+        <span>退訂人數(<{$item.unsubscribe}>)</span>&nbsp;&nbsp;
+        <span>總數(<{$item.count}>)</span>
+    </div>
+<{/foreach}>

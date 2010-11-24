@@ -1,0 +1,27 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+
+<h1>電子報訂閱會員</h1>
+
+<div>
+    <form name="search" method="post" action="admin.user.php">用戶搜索：
+        <input type="text" name="query" size="20" maxlength="255" tabindex="1" value="" />
+
+        <input type="hidden" name="op" value="search" />
+        <input type="submit" value="<{$smarty.const._SEARCH}>" tabindex="2" />
+    </form>
+</div>
+
+<table class="outer" align="left"> 
+    <th>電子報會員</th>
+    <th>會員郵件</th>
+    <th>訂閱時間</th>
+    <th>操作</th>
+    <{foreach item=user from=$users}>
+    <tr class="<{cycle values='odd, even'}>" >
+        <td><{$user.uname}></td>
+        <td><{$user.email}></td>
+        <td align="center"><{$user.updatetime}></td>
+        <td align="center"><a href="admin.user.php?op=delete&amp;uid=<{$user.uid}>">刪除</a></td>
+    </tr>
+    <{/foreach}>     
+</table>

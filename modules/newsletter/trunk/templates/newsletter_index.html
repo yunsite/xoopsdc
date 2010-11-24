@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+
+<img src="<{$xoops_url}>/modules/newsletter/action.php" width="1px" height="1px" />
+
+<div>
+    <{if !$is_subscribe}>
+        <a href="subcribe.php?op=add">訂閱電子報</a>
+    <{else}>
+        <a href="subcribe.php?op=delete">退訂電子報</a>
+    <{/if}>
+</div>
+<br style="clear: both;"/>
+
+<ul>
+<{foreach item=newsletter from=$newsletters}>
+    <li><{$newsletter.letter}><a href="newsletter.php?letter_id=<{$newsletter.letter_id}>"><{$newsletter.letter_title}></a>&nbsp;&nbsp;[<{$newsletter.create_time}>]</li>
+<{/foreach}>
+</ul>

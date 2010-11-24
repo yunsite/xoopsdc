@@ -1,0 +1,8 @@
+
+.newsletter-admin-list li{
+	list-style: none;
+}
+
+.newsletter-admin-list span{
+	color: red;    
+}

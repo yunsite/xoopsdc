@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+
+<img src="<{$xoops_url}>/modules/newsletter/action.php" width="1px" height="1px" />
+
+<{$letter.letter_content}>
+
+<br style="clear: both;"/>
+<div>
+    <{if !$is_subscribe}>
+        <a href="subcribe.php?op=add">訂閱電子報</a>
+    <{else}>
+        <a href="subcribe.php?op=delete">退訂電子報</a>
+    <{/if}>
+</div>

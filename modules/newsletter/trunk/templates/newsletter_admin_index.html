@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/<{$xoops_dirname}>/templates/style.css" />
+
+<h1>本月電子報訂閱統計</h1>
+<div><{$result.start_time}> 到 <{$result.end_time}></div>
+<div>
+    <span>訂閱人數(<{$result.subscribe}>)</span>&nbsp;&nbsp;
+    <span>退訂人數(<{$result.unsubscribe}>)</span>&nbsp;&nbsp;
+    <span>總數(<{$result.count}>)</span>
+</div>
+
+<h1>自動發送電子報設定  [ <a href="admin.automatic.php?op=edit">編輯</a> ]</h1>
+<{if $model_automatic}>
+    <ul class="newsletter-admin-list">
+        <li>電子報發送狀態:  <span><{if $model_automatic.status}>啟用<{else}>關閉<{/if}></span></li>
+        <li>電子報發送的時間:  <span><{$model_automatic.time_difference}></span></li>
+        <li>電子報表頭圖片: <br /><{if $model_automatic.header_img}><img src="<{$xoops_url}>/uploads/newsletter/thumb_<{$model_automatic.header_img}>"><{/if}></li>
+        <li>電子報表頭內容: <br /><{$model_automatic.header_desc}></li>
+        <li>電子報頁尾內容: <br /><{$model_automatic.footer_desc}></li>
+    </ul>
+<{else}>
+    您還沒有設置自動發送電子報設定
+<{/if}>
+
+<h1>手動發送電子報設定  [ <a href="admin.manual.php?op=edit">編輯</a> ]</h1>
+<{if $model_manual}>
+    <ul class="newsletter-admin-list">
+        <li>電子報發送狀態:  <span><{if $model_manual.status}>啟用<{else}>關閉<{/if}></span></li>
+        <li>電子報發送的時間:  <span><{$model_manual.time_difference}></span></li>
+        <li>電子報表頭圖片: <br /><{if $model_manual.header_img}><img src="<{$xoops_url}>/uploads/newsletter/thumb_<{$model_manual.header_img}>"><{/if}></li>
+        <li>電子報表頭內容: <br /><{$model_manual.header_desc}></li>
+        <li>電子報頁尾內容: <br /><{$model_manual.footer_desc}></li>
+    </ul>
+<{else}>
+    您還沒有設置手動發送電子報設定
+<{/if}>
