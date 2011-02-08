@@ -1,0 +1,9 @@
+<link rel="stylesheet" type="text/css" href="<{$xoops_url}>/modules/spotlight/components/default/style.css" />
+
+<ul>
+    <{foreachq item=item from=$block.news}>       
+        <li>
+            <a href="<{$item.page_link}>"><{$item.page_title}></a>
+        </li> 
+    <{/foreach}>
+</ul>

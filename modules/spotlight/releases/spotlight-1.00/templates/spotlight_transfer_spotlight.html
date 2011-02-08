@@ -1,0 +1,90 @@
+<div>
+<strong>幻灯片:</strong>
+    <select name="sp_id" id="sp_id" onchange="location='<{$xoops_url}>/modules/<{if $spotlight_data.id}><{$spotlight_data.module}>/art_transfer.php?id=<{$spotlight_data.id}>&ajax=<{$spotlight_data.ajax}>&<{else}>spotlight/transfer_spotlight.php?ajax=1&<{/if}>sp_id='+this.options[this.selectedIndex].value">
+        <{foreach item=spotlight key=key from=$spotlights}>
+            <option value="<{$key}>" <{if $key eq $sp_id}>selected="selected"<{/if}>><{$spotlight}></option>
+        <{/foreach}>
+    </select> 
+</div>
+<{if $count}><{if $spotlight_data.count}>
+<h2 class="errorMsg"><b><{$SMARTY.CONST._MA_SPOTLIGHT_THE_ARTICLE_IN_THIS_SLIDE_HAS_BEEN_REMMENDED}></b></h2>
+<{/if}><{/if}>
+<form id="form1" name="form1" method="post" action="<{$xoops_url}>/modules/spotlight/transfer_spotlight.php?sp_id=<{$sp_id}>&action=order">
+    <table class="outer">
+        <tr>
+            <th align="center" width=10%><{$smarty.const._MA_SPOTLIGHT_MANAGEMENT_SORT}></th>
+            <th align="center" width=50%><{$smarty.const._MA_SPOTLIGHT_MANAGEMENT_TITLE}></th>
+            <th align="center" width=10%><{$smarty.const._MA_SPOTLIGHT_MANAGEMENT_STATUS}></th>
+            <th align="center" width=10%><{$smarty.const._MA_SPOTLIGHT_MANAGEMENT_RELEASE_TIME}></th>
+            <th align="center" width=10%><{$smarty.const._MA_SPOTLIGHT_OPERATING}></th>
+        </tr>
+        <{foreach item=page from=$pages}>
+        <tr class="<{cycle values='odd, even'}>">
+            <td align=center><input name="page_order[<{$page.page_id}>]" type="text" id="<{$page.page_id}>" value="<{$page.page_order}>" size="1" maxlength="4" /></td>
+            <td align=left><{$page.page_title}></td>
+            <td align=center><{$page.page_status}></td>
+            <td align=center><{$page.published}></td>              
+            <td align=center> 
+                <a href="<{$xoops_url}>/modules/spotlight/transfer_spotlight.php?action=delete&amp;page_id=<{$page.page_id}>&amp;sp_id=<{$page.sp_id}><{if $spotlight_data.id}>&amp;spotlight_data[module]=<{$spotlight_data.module}>&amp;spotlight_data[file]=<{$spotlight_data.file}>&amp;spotlight_data[id]=<{$spotlight_data.id}><{/if}>">删除</a> 
+            
+            </td>
+        </tr>
+        <{/foreach}>
+        <tr class="foot">
+            <td colspan="5">
+            <div align="left">
+                <{if $spotlight_data.id}>
+                    <input type="hidden" name="spotlight_data[id]" value="<{$spotlight_data.id}>" />
+                    <input type="hidden" name="spotlight_data[module]" value="<{$spotlight_data.module}>" />
+                    <input type="hidden" name="spotlight_data[file]" value="<{$spotlight_data.file}>" />
+                    <input type="hidden" name="spotlight_data[ajax]" value="1" />
+                <{/if}>
+                <input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>">
+            </div>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<{if !$count}>
+<{if $form}>
+<{$form.javascript}>
+    <form id="<{$form.name}>" name="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}> >
+        <table class="profile-form" id="profile-form-<{$form.name}>">
+            <tr class="head">
+                <th colspan="2"><{$form.title}></th>
+            </tr>
+            <{foreach item=element from=$form.elements}>
+                <{if !$element.hidden}>
+                    <tr>
+                        <td class="head" width="20%" valign="top">
+                            <div class='xoops-form-element-caption<{if $element.required}>-required<{/if}>'>
+                                <span class='caption-text'><{$element.caption}></span>
+                                <span class='caption-marker'>*</span>
+                            </div>
+                            <{if $element.description != ""}>
+                                <div class='xoops-form-element-help'><{$element.description}></div>
+                            <{/if}>
+                        </td>
+                        <td class="<{cycle values='odd, even'}>">
+                            <{$element.body}>
+                        </td>
+                    </tr>
+                <{/if}>
+            <{/foreach}>
+        </table>
+        
+        <{foreach item=element from=$form.elements}>
+            <{if $element.hidden}>
+                <{$element.body}>
+            <{/if}>
+        <{/foreach}>
+        <{if $spotlight_data.id}>
+            <input type="hidden" name="spotlight_data[id]" value="<{$spotlight_data.id}>" />
+            <input type="hidden" name="spotlight_data[module]" value="<{$spotlight_data.module}>" />
+            <input type="hidden" name="spotlight_data[file]" value="<{$spotlight_data.file}>" />
+            <input type="hidden" name="spotlight_data[ajax]" value="1" />
+        <{/if}>
+    </form>
+<{/if}>
+<{/if}>

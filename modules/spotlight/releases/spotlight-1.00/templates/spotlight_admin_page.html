@@ -1,0 +1,38 @@
+<div>
+<strong>幻灯片:</strong>
+    <select name="sp_id" id="sp_id" onchange="location='<{$xoops_url}>/modules/spotlight/admin/admin.page.php?sp_id='+this.options[this.selectedIndex].value">
+        <{foreach item=spotlight key=key from=$spotlights}>
+            <option value="<{$key}>" <{if $key eq $sp_id}>selected="selected"<{/if}>><{$spotlight}></option>
+        <{/foreach}>
+    </select> 
+        <a href="admin.page.php?op=new&amp;sp_id=<{$sp_id}>"><{$smarty.const._AM_SPOTLIGHT_ADD_PAGE}></a>
+    </div>
+    
+
+
+<form id="form" name="form" method="post" action="admin.page.php?sp_id=<{$sp_id}>">
+    <table class="outer">
+        <tr>
+            <th align="center" width=5%><{$smarty.const._AM_SPOTLIGHT_MANAGEMENT_SORT}></th>
+            <th align="center" width=55%><{$smarty.const._AM_SPOTLIGHT_MANAGEMENT_TITLE}></th>
+            <th align="center" width=5%><{$smarty.const._AM_SPOTLIGHT_MANAGEMENT_STATUS}></th>
+            <th align="center" width=15%><{$smarty.const._AM_SPOTLIGHT_MANAGEMENT_RELEASE_TIME}></th>
+            <th align="center" width=10%><{$smarty.const._AM_SPOTLIGHT_OPERATING}></th>
+        </tr>
+        <{foreach item=page from=$pages}>
+        <tr class="<{cycle values='odd, even'}>">
+            <td align=center><input name="page_order[<{$page.page_id}>]" type="text" id="<{$page.page_id}>" value="<{$page.page_order}>" size="1" maxlength="4" /></td>
+            <td align=left><{$page.page_title}></td>
+            <td align=center><{$page.page_status}></td>
+            <td align=center><{$page.published}></td>
+            <td align=center> 
+                <a href="admin.page.php?page_id=<{$page.page_id}>&amp;sp_id=<{$page.sp_id}>"><{$smarty.const._AM_SPOTLIGHT_EDIT}></a> 
+                <a href="action.page.php?ac=delete&amp;page_id=<{$page.page_id}>&amp;sp_id=<{$page.sp_id}>"><{$smarty.const._AM_SPOTLIGHT_DELETE}></a> 
+            </td>
+        </tr>
+        <{/foreach}>
+        <tr class="foot">
+            <td colspan="5"><div align="left"><input type="submit" name="button" id="button" value="<{$smarty.const._SUBMIT}>"></div></td>
+        </tr>
+    </table>
+</form>

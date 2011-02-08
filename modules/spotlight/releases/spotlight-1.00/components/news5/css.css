@@ -1,0 +1,50 @@
+#ifocus  * {margin:0;padding:0;}
+#ifocus li {list-style:none;}
+#ifocus .clearfix:after{content:"."; clear:both; display:block; height:0; visibility:hidden;}
+#ifocus .clearfix {zoom:1;}
+#ifocus img {border:none;}
+#ifocus .c{clear:both;height:5px;overflow:hidden;}
+#ifocus h1,#ifocus  h2, #ifocus h3,#ifocus  h4, #ifocus h5 {font-size: 1em}
+#ifocus a{ font-family:宋体; font-size:12px; font-weight:bold; color:#33779E; text-decoration:none;}
+#ifocus a:link{ font-family:宋体; font-size:12px; font-weight:bold; color:#33779E; text-decoration:none;}
+#ifocus a:visited{text-decoration:none;}
+#ifocus a:hover{text-decoration:none; color:#333;}
+#ifocus a:active{text-decoration:none; color:#333;}
+#ifocus li a{ font-family:宋体; font-size:12px; font-weight:normal; color:#33779E; text-decoration:none;}
+#ifocus li a:link{ font-family:宋体; font-size:12px; font-weight:normal; color:#33779E; text-decoration:none;}
+#ifocus li a:visited{text-decoration:none;}
+#ifocus li a:hover{text-decoration: underline; color: #333333;}
+#ifocus li a:active{text-decoration: underline; color: #333333;}
+#ifocus p{line-height:30px}
+
+
+/* iFocus style */
+	#ifocus {width:657px;height:341px; position:relative; overflow:hidden}
+		#ifocus_pic { display:inline;width:657px; height:274px; overflow:hidden;  }
+		#ifocus_piclist { width:100% ; position:absolute;}
+		#ifocus_piclist li {width:657px; height:274px; overflow:hidden; position:relative; }
+		#ifocus_piclist img { width:100%; height:100%; position:absolute; top:0;left:0; }
+		#ifocus_piclist .focusTitle { width:100%;line-height:30px;height:30px; position:absolute; top:0; left:0;filter: Alpha(Opacity=50);
+	-moz-opacity: 0.5; }
+		#ifocus_btn { display:block;  position:absolute; height:64px; width:657px;  bottom:0; left:0px; overflow:hidden; }
+		#ifocus_btn ul{height:64px;}
+		#ifocus_btn li {height:62px; margin:0 2px; overflow:hidden; width:84px; vertical-align:bottom; float:left; border:#d0d4d7 solid 1px;
+		                 background:url(images/discovery_0720_17.gif);cursor:pointer;
+		                }
+		#ifocus_btn li a{color:#33779e;display:block; height:25px; width:190px; float:left; overflow:hidden;
+		                  text-align:left; text-decoration:none; 
+		                 }
+		#ifocus_btn li span{padding-right:20px; padding-top:3px; padding-bottom:3px;  
+		                  background:url(images/discovery_0720_20.gif) 0px right no-repeat;
+		                 }
+		#ifocus_btn li p{ float:left; width:190px; text-align:left; height:40px; overflow:hidden; line-height:20px;}
+		#ifocus_btn li img{ float:left; width:84px; height:62px; margin-right:3px;}
+		#ifocus_btn .current { width:280px;}
+		
+		.focusPlay
+		{
+			position:absolute; top:10px; right:10px; width:269px; height:217px; z-index:4444;  overflow:hidden;background:#000;padding-top:15px;
+		}
+        
+#ifocus_piclist .focusTitlet { width:100%;line-height:30px;height:30px; position:absolute;font-size:16px;font-weight:700;
+bottom :0; left:0; z-index: 999; filter: Alpha(Opacity=50);background: #fff; -moz-opacity: 0.5; }    
