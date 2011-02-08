@@ -1,0 +1,17 @@
+<script  type="text/javascript" src="<{$xoops_url}>/modules/spotlight/components/showcase/jquery-1.4.1.min.js"></script>
+<script  type="text/javascript" src="<{$xoops_url}>/modules/spotlight/components/showcase/jquery.showcase.2.0.js"></script>
+<div id="showcase_focus">
+<{foreachq item=item from=$block.news}>
+    <a href="<{$item.page_link}>"><img src="<{$item.thumbs}>" alt="<{$item.page_title}>" /></a>
+<{/foreach}>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $("#showcase_focus").showcase({
+            animation: { type: "fade" },
+            titleBar: { autoHide: false },
+            navigator: { autoHide: true }
+        });
+    });
+
+</script>

@@ -1,0 +1,12 @@
+<script type="text/javascript" src="<{$xoops_url}>/modules/spotlight/components/flash3cyc/xixi.js"></script>
+<div id="imager_div"></div>
+
+<script language="javascript" type="text/javascript">
+var swf = new sinaFlash("<{$xoops_url}>/modules/spotlight/components/flash3cyc/shis.swf", "", "268", "244", "8", "#4CC2FF", true,"high");
+swf.addParam("allowScriptAccess", "always");
+swf.addParam("wmode", "opaque");
+swf.addVariable("p_array", "<{$block.images}>");
+swf.addVariable("txt_array", "<{$block.title}>");
+swf.addVariable("link_array", "<{$block.url}>");
+swf.write("imager_div");
+</script>

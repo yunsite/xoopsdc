@@ -1,0 +1,28 @@
+<{$form.javascript}>
+    <form id="<{$form.name}>" name="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}> >
+        <table class="profile-form" id="profile-form-<{$form.name}>">
+            <{foreach item=element from=$form.elements}>
+                <{if !$element.hidden}>
+                    <tr>
+                        <td class="head" width="20%" valign="top">
+                            <div class='xoops-form-element-caption<{if $element.required}>-required<{/if}>'>
+                                <span class='caption-text'><{$element.caption}></span>
+                                <span class='caption-marker'>*</span>
+                            </div>
+                            <{if $element.description != ""}>
+                                <div class='xoops-form-element-help'><{$element.description}></div>
+                            <{/if}>
+                        </td>
+                        <td class="<{cycle values='odd, even'}>">
+                            <{$element.body}>
+                        </td>
+                    </tr>
+                <{/if}>
+            <{/foreach}>
+        </table>
+        <{foreach item=element from=$form.elements}>
+            <{if $element.hidden}>
+                <{$element.body}>
+            <{/if}>
+        <{/foreach}>
+    </form>
