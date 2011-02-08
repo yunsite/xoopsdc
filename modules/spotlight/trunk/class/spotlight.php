@@ -93,9 +93,40 @@ class SpotlightSpotlight extends XoopsObject
 
 class SpotlightSpotlightHandler extends XoopsPersistableObjectHandler
 {
-    function __construct(&$db){
+    function __construct(&$db) {
             parent::__construct($db, 'sp_spotlight', 'SpotlightSpotlight', 'sp_id', 'sp_name');
     }
+    
+    /**
+     * Load the Spotlight Component
+     *
+     * @param string $component
+     */
+    function loadComponent($component, $config) {
+    	$instance = '';
+    	
+    	if (!empty($component)) {
+            $class = 'SpotlightComponent' . ucfirst($component);
+            if (!class_exists($class)) {
+                include_once dirname(dirname(__FILE__)) . '/components/' . $component . '/show.php';
+            }
+            
+            if (class_exists($class)) {
+                if (call_user_func(array($class , 'validate'))) {
+                    $instance = new $class();
+                    $instance->foldername = $component;
+                    $instance->config = $config;
+                    $instance->component_path = dirname(dirname(__FILE__)) .'/components/'. $instance->foldername;
+                    $instance->component_url  = XOOPS_URL . '/modules/spotlight/components/'.$instance->foldername;
+                }
+            }
+        }
+        
+        return $instance;
+        
+    }
+    
+
 }
 
 ?>

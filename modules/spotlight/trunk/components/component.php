@@ -1,6 +1,6 @@
 <?php
  /**
- * Spotlight
+ * Spotlight Component abstract class
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code 
@@ -22,22 +22,48 @@ if (!defined("XOOPS_ROOT_PATH")) {
     die("XOOPS root path not defined");
 }
 
-class Components
+class SpotlightComponent
 {
+	var $sp_id;
+	var $config;
+	var $page_hander;
+	/**
+     * Holding component folder name
+     */
+    var $foldername;
+    
+    var $template = 'template.html';
+    
+    var $component_path;
+    var $component_url;
+	
     function __construct() {
+    	$this->page_hander =& xoops_getmodulehandler('page', 'spotlight');
         return true;
     }
     
-    function Components(){
+    function component(){
         $this->__construct();
     }
     
-    function Show ($component_name, $options) {
-        include_once XOOPS_ROOT_PATH . "/modules/spotlight/components/$component_name/show.php";
-        $fun_name = $component_name.'ComponentsShow';
-        $result = $fun_name ($options);
-        return $result;
+	function validate() {}
+    function flush() {}
+/*
+    function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $class = __CLASS__;
+            $instance = new $class();
+        }
+        return $instance;
     }
+*/    
+    function show() {
+    	$pages = $this->page_hander->getBySpotlight($this->sp_id, $this->config['limit'], $this->config['sort'], $this->config['order']);
+    	return $pages;
+    }
+
 }
 
 ?>

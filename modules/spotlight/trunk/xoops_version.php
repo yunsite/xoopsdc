@@ -21,7 +21,7 @@
 if (!defined('XOOPS_ROOT_PATH')){ exit(); }
 
 $modversion['name'] = _MI_SPOTLIGHT_FOCUS_MANDGEMENT;
-$modversion['version'] = 1.00;
+$modversion['version'] = 1.01;
 $modversion['description'] = _MI_SPOTLIGHT_FOCUS_MANDGEMENT;
 $modversion['author'] = 'Magic.Shao <magic.shao@gmail.com> <br /> Susheng Yang <ezskyyoung@gmail.com>';
 $modversion['credits'] = 'http://xoops.org.cn';
