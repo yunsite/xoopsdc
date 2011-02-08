@@ -100,6 +100,17 @@ class SpotlightPageHandler extends XoopsPersistableObjectHandler
         parent::__construct($db, 'sp_page', "SpotlightPage", "page_id", "page_title");
     }
     
+    function getBySpotlight($spotlight_id, $limit=5, $sort='page_order', $order='ASC') {
+
+        $criteria = new CriteriaCompo();
+        $criteria -> add(new Criteria('sp_id', $spotlight_id));
+        $criteria -> setLimit($limit);
+        $criteria -> setSort($sort);
+        $criteria -> setOrder($order);
+        $pages = parent::getAll($criteria, array('page_id', 'page_title', 'page_link', 'page_image', 'page_desc'), false);
+        
+        return $pages;
+    }
 }
 
 ?>

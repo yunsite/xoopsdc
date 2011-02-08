@@ -20,41 +20,35 @@
 
 if (!defined('XOOPS_ROOT_PATH')) { exit(); }
 
-function defaultComponentsShow($options)
+include_once dirname(dirname(__FILE__)) . '/component.php';
+
+class SpotlightComponentDefault extends SpotlightComponent
 {
-    include XOOPS_ROOT_PATH."/modules/spotlight/components/default/config.php";
-    
-    $sp_handler =& xoops_getmodulehandler('spotlight', 'spotlight');
-    $page_handler =& xoops_getmodulehandler('page', 'spotlight');
-    
-    // spotlight object
-    $sp_obj = $sp_handler->get($options[0]);
-
-    if(!is_object($sp_obj) || empty($options[0])) {
-    
-        trigger_error("spotlight is not object ", E_USER_WARNING);
-        
-    } else {
-        
-        //spotlight name
-        $block['sp_name'] = $sp_obj->getVar('sp_name');
-
-        // page list
-        $criteria = new CriteriaCompo();
-        $criteria -> add(new Criteria('sp_id', $options[0]));
-        $criteria -> setLimit($config['limit']);
-        $criteria -> setSort($config['sort']);
-        $criteria -> setOrder('ASC');
-        $pages = $page_handler->getAll($criteria,array('page_id', 'page_title', 'page_link', 'page_image', 'page_desc'),false);
+	function validate()
+	    {
+	        return true;
+	    }
+	    
+	function show() {
+		$pages = parent::show();
+		
+		$myts = MyTextSanitizer::getInstance();
         foreach ($pages as $k=>$v) {
-            $block['news'][$k] = $v;
-        }
+            $rel['pages'][$k] = $v;
+            $rel['pages'][$k]['images'] = XOOPS_UPLOAD_URL . '/spotlight/image_'.$v['page_image'];
+            $rel['pages'][$k]['thumbs'] = XOOPS_UPLOAD_URL . '/spotlight/thumb_'.$v['page_image'];
+            $page_desc = strip_tags($myts->undoHtmlSpecialChars(strip_tags($v['page_desc'])));
+            //$rel['pages'][$k]['page_desc'] = xoops_substr($page_desc, '', $config['page_desc_substr']);
+            //$rel['pages'][$k]['page_title'] = xoops_substr($v['page_title'], '', $config['page_title_substr']);
+            //$rel['pages'][$k]['published'] = formatTimestamp($v['published'],$config['timeformat']);                                      
+        }  
         
         // component name
-        $block['component'] = $sp_obj->getVar('component_name');
-
-        return $block;
-    }
+        $rel['component'] = $this->foldername;
+		$rel['tpl'] = $this->component_path . '/' . $this->template;
+        return $rel;
+	}	
 }
+
 
 ?>

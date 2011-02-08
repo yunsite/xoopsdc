@@ -22,23 +22,22 @@ include_once dirname(dirname(__FILE__)).'/include/functions.php';
 
 function spotlight_spotlight_show ($options)
 {
-    xoops_loadlanguage('admin', 'spotlight');
+
+    //xoops_loadlanguage('admin', 'spotlight');
     $sp_handler =& xoops_getmodulehandler('spotlight', 'spotlight');
+
     $block = '';
-    // spotlight object
-    $sp_obj = $sp_handler->get($options[0]);
 
-    if(!is_object($sp_obj) || empty($options[0])) {   
-        trigger_error("spotlight is not object ", E_USER_WARNING);        
-    } else {
-        $component_name = $sp_obj->getVar('component_name');
-        
-        include_once XOOPS_ROOT_PATH . "/modules/spotlight/class/components.php";
-        $com_obj = new Components();
-        $block = $com_obj->Show($component_name, $options);
+    $sp_id = $options[0];
+    $sp_obj = $sp_handler->get($sp_id);
 
-        $block['tpl'] = dirname(dirname(__FILE__))."/components/{$component_name}/template.html";      
-    }
+    $component = $sp_obj->getVar('component_name');
+
+    // temple solution , will be get form spotlight object
+    include_once dirname(dirname(__FILE__)) . "/components/" . $component . "/config.php";
+    $instance = $sp_handler->loadComponent($component, $config);
+    $instance->sp_id = $sp_id;
+    $block = $instance->show();
 
     return $block;
 }
